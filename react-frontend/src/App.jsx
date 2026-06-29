@@ -12,6 +12,7 @@ import ArticleDetail from './pages/ArticleDetail'
 import Contact from './pages/Contact'
 import Explore from './pages/Explore'
 import Search from './pages/Search'
+import WordOfDay from './pages/WordOfDay'
 import './index.css'
 
 const queryClient = new QueryClient({
@@ -35,6 +36,7 @@ export default function App() {
             <Route path="articles/:slug" element={<ArticleDetail />} />
             <Route path="contact" element={<Contact />} />
             <Route path="search" element={<Search />} />
+            <Route path="word-of-the-day" element={<WordOfDay />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>

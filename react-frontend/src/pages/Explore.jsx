@@ -11,6 +11,15 @@ const features = [
     color: 'teal',
   },
   {
+    emoji: '📅',
+    title: 'Word of the Day',
+    description: 'A new English word or phrase every day — with its meaning, usage examples, notes, and cultural context. Build your vocabulary one day at a time without feeling overwhelmed.',
+    cta: 'See today\'s word',
+    link: '/word-of-the-day',
+    available: true,
+    color: 'green',
+  },
+  {
     emoji: '🃏',
     title: 'Flashcards',
     description: 'Practice English words and phrases with interactive flashcards. Flip through themed sets — workplace English, Indian vs American English, everyday expressions — and test your recall.',
@@ -27,15 +36,6 @@ const features = [
     link: null,
     available: false,
     color: 'amber',
-  },
-  {
-    emoji: '📅',
-    title: 'Word of the Day',
-    description: 'A new English word or phrase every day — with its meaning, usage examples, notes, and cultural context. Build your vocabulary one day at a time without feeling overwhelmed.',
-    cta: 'Coming soon',
-    link: null,
-    available: false,
-    color: 'green',
   },
   {
     emoji: '🎯',
@@ -78,9 +78,7 @@ export default function Explore() {
               <p className="explore-card-desc">{feature.description}</p>
               <div className="explore-card-footer">
                 {feature.available ? (
-                  <Link to={feature.link} className="explore-card-cta">
-                    {feature.cta} →
-                  </Link>
+                  <Link to={feature.link} className="explore-card-cta">{feature.cta} →</Link>
                 ) : (
                   <span className="explore-card-soon-badge">Coming soon</span>
                 )}

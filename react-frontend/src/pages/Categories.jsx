@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 import { Link } from 'react-router-dom'
 import { getCategories } from '../api/drupal'
+import { getCategoryCounts } from '../api/counts'
 
 export default function Categories() {
   const { data, isLoading } = useQuery({
@@ -8,7 +9,12 @@ export default function Categories() {
     queryFn: getCategories
   })
 
-  // Exclude Usage Difference — it's in Explore menu, not a content category
+  const { data: categoryCounts } = useQuery({
+    queryKey: ['category-counts'],
+    queryFn: getCategoryCounts,
+    staleTime: 10 * 60 * 1000,
+  })
+
   const categories = (data?.data || []).filter(
     cat => cat.attributes.name !== 'Usage Difference'
   )
@@ -28,6 +34,9 @@ export default function Categories() {
             <div className="category-detail-header">
               <span className="category-number">{String(i + 1).padStart(2, '0')}</span>
               <h2 className="category-detail-name">{cat.attributes.name}</h2>
+              {categoryCounts?.[cat.id] && (
+                <span className="category-count-badge">{categoryCounts[cat.id]} entries</span>
+              )}
               <Link to={`/entries?category=${cat.id}`} className="category-browse-link">
                 Browse entries →
               </Link>

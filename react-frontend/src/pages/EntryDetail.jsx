@@ -1,17 +1,18 @@
 import { useQuery } from '@tanstack/react-query'
 import { useParams, Link } from 'react-router-dom'
 import { getEntry, getIncluded } from '../api/drupal'
+import RelatedEntries from '../components/RelatedEntries'
 
 export default function EntryDetail() {
   const { slug } = useParams()
 
-  const { data: entry, isLoading, error } = useQuery({
+  const { data: entry, isLoading } = useQuery({
     queryKey: ['entry', slug],
     queryFn: () => getEntry(slug)
   })
 
   if (isLoading) return <div className="loading">Loading...</div>
-  if (error || !entry) return (
+  if (!entry) return (
     <div className="not-found">
       <h1>Entry not found</h1>
       <Link to="/entries">← Back to entries</Link>
@@ -33,10 +34,8 @@ export default function EntryDetail() {
   return (
     <article className="entry-detail">
       <nav className="breadcrumb">
-        <Link to="/">Home</Link>
-        <span>›</span>
-        <Link to="/entries">Entries</Link>
-        <span>›</span>
+        <Link to="/">Home</Link><span>›</span>
+        <Link to="/entries">Entries</Link><span>›</span>
         <span>{attributes.title}</span>
       </nav>
 
@@ -123,6 +122,12 @@ export default function EntryDetail() {
         </p>
         <Link to="/entries" className="back-link">← Back to entries</Link>
       </footer>
+
+      <RelatedEntries
+        categoryId={categoryId}
+        currentSlug={slug}
+        categoryName={categoryName}
+      />
     </article>
   )
 }

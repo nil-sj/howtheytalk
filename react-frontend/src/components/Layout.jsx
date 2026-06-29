@@ -39,9 +39,9 @@ export default function Layout() {
               {practiceOpen && (
                 <div className="nav-dropdown-menu" onMouseEnter={openDropdown} onMouseLeave={closeDropdown}>
                   <Link to="/usage-difference" onClick={() => setPracticeOpen(false)}>🔄 Usage Differences</Link>
+                  <Link to="/word-of-the-day" onClick={() => setPracticeOpen(false)}>📅 Word of the Day</Link>
                   <span className="nav-dropdown-soon">🃏 Flashcards <span className="coming-soon">soon</span></span>
                   <span className="nav-dropdown-soon">🧩 Quizzes <span className="coming-soon">soon</span></span>
-                  <span className="nav-dropdown-soon">📅 Word of the Day <span className="coming-soon">soon</span></span>
                   <span className="nav-dropdown-soon">🎯 Hangman <span className="coming-soon">soon</span></span>
                 </div>
               )}
@@ -50,12 +50,7 @@ export default function Layout() {
             <NavLink to="/contact">Contact</NavLink>
           </nav>
           <form className="header-search" onSubmit={handleSearch}>
-            <input
-              type="search"
-              placeholder="Search everything..."
-              value={search}
-              onChange={e => setSearch(e.target.value)}
-            />
+            <input type="search" placeholder="Search everything..." value={search} onChange={e => setSearch(e.target.value)} />
             <button type="submit">Search</button>
           </form>
         </div>
@@ -84,9 +79,10 @@ export default function Layout() {
               <div className="footer-heading">Explore</div>
               <ul className="footer-links">
                 <li><Link to="/usage-difference">Usage differences</Link></li>
+                <li><Link to="/word-of-the-day">Word of the Day</Link></li>
                 <li><Link to="/explore">Flashcards <span style={{fontSize:'0.7rem',color:'var(--ink-faint)'}}>soon</span></Link></li>
                 <li><Link to="/explore">Quizzes <span style={{fontSize:'0.7rem',color:'var(--ink-faint)'}}>soon</span></Link></li>
-                <li><Link to="/explore">Word of the Day <span style={{fontSize:'0.7rem',color:'var(--ink-faint)'}}>soon</span></Link></li>
+                <li><Link to="/explore">Hangman <span style={{fontSize:'0.7rem',color:'var(--ink-faint)'}}>soon</span></Link></li>
               </ul>
             </div>
             <div className="footer-col">
