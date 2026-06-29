@@ -29,6 +29,7 @@ import AdminEditEntry from './admin/pages/AdminEditEntry'
 import AdminSubmissions from './admin/pages/AdminSubmissions'
 import AdminSettings from './admin/pages/AdminSettings'
 import AdminSuggest from './admin/pages/AdminSuggest'
+import AdminAnalytics from './admin/pages/AdminAnalytics'
 import './index.css'
 
 const queryClient = new QueryClient({
@@ -70,6 +71,7 @@ export default function App() {
             <Route path="submissions" element={<AdminSubmissions />} />
             <Route path="settings" element={<AdminSettings />} />
             <Route path="suggest" element={<AdminSuggest />} />
+            <Route path="analytics" element={<AdminAnalytics />} />
           </Route>
         </Routes>
       </BrowserRouter>

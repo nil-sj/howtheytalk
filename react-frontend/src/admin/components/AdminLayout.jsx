@@ -1,5 +1,5 @@
 import { Outlet, Link, NavLink, useNavigate } from 'react-router-dom'
-import { logout, getToken } from '../api/auth'
+import { logout } from '../api/auth'
 
 export default function AdminLayout() {
   const navigate = useNavigate()
@@ -19,6 +19,7 @@ export default function AdminLayout() {
           <NavLink to="/admin/entries/new">✏️ New entry</NavLink>
           <NavLink to="/admin/suggest">✨ AI suggestions</NavLink>
           <NavLink to="/admin/submissions">📬 Submissions</NavLink>
+          <NavLink to="/admin/analytics">📈 Analytics</NavLink>
           <NavLink to="/admin/settings">⚙️ AI settings</NavLink>
         </nav>
         <div className="admin-sidebar-footer">
