@@ -22,21 +22,18 @@ export async function getEntries({ search = '', category = '', page = 0 } = {}) 
 }
 
 export async function getEntry(slug) {
-  // Convert slug back to title search — more reliable than path alias filter
-  const title = slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')
   const res = await api.get('/jsonapi/node/language_entry', {
     params: {
       'filter[status]': 1,
-      'filter[title][operator]': 'CONTAINS',
-      'filter[title][value]': title.replace(/-/g, ' '),
+      'page[limit]': 50,
       'include': 'field_main_category,field_tags',
-      'page[limit]': 5,
     }
   })
-  // Find exact match by path alias
   const entries = res.data.data || []
+  const included = res.data.included || []
   const match = entries.find(e => e.attributes.path?.alias === `/entries/${slug}`)
-  return match || entries[0] || null
+  if (match) match._included = included
+  return match || null
 }
 
 export async function getCategories() {
@@ -64,14 +61,10 @@ export async function getUsageDifferences({ search = '', page = 0 } = {}) {
 
 export async function getUsageDifference(slug) {
   const res = await api.get('/jsonapi/node/usage_difference', {
-    params: {
-      'filter[status]': 1,
-      'page[limit]': 50,
-    }
+    params: { 'filter[status]': 1, 'page[limit]': 50 }
   })
   const entries = res.data.data || []
-  const match = entries.find(e => e.attributes.path?.alias === `/usage-difference/${slug}`)
-  return match || null
+  return entries.find(e => e.attributes.path?.alias === `/usage-difference/${slug}`) || null
 }
 
 export function getIncluded(included = [], type, id) {

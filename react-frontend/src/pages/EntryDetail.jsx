@@ -19,9 +19,15 @@ export default function EntryDetail() {
   )
 
   const { attributes, relationships } = entry
-  const included = []
+  const included = entry._included || []
 
-  const categoryData = relationships?.field_main_category?.data
+  const categoryRel = relationships?.field_main_category?.data
+  const category = categoryRel
+    ? getIncluded(included, 'taxonomy_term--main_categories', categoryRel.id)
+    : null
+  const categoryName = category?.attributes?.name || null
+  const categoryId = categoryRel?.id || null
+
   const tagsData = relationships?.field_tags?.data || []
 
   return (
@@ -36,12 +42,9 @@ export default function EntryDetail() {
 
       <header className="entry-header">
         <div className="entry-meta">
-          {categoryData && (
-            <Link
-              to={`/entries?category=${categoryData.id}`}
-              className="category-badge"
-            >
-              {categoryData.meta?.drupal_internal__target_id || 'Category'}
+          {categoryName && categoryId && (
+            <Link to={`/entries?category=${categoryId}`} className="category-badge">
+              {categoryName}
             </Link>
           )}
           <span className="entry-date">
@@ -64,10 +67,7 @@ export default function EntryDetail() {
         {attributes.field_detailed_explanation?.processed && (
           <div className="content-section">
             <div className="field-label">Detailed explanation</div>
-            <div
-              className="rich-text"
-              dangerouslySetInnerHTML={{ __html: attributes.field_detailed_explanation.processed }}
-            />
+            <div className="rich-text" dangerouslySetInnerHTML={{ __html: attributes.field_detailed_explanation.processed }} />
           </div>
         )}
 
@@ -75,11 +75,7 @@ export default function EntryDetail() {
           <div className="content-section">
             <div className="field-label">Usage examples</div>
             {attributes.field_usage_examples.map((ex, i) => (
-              <div
-                key={i}
-                className="usage-example"
-                dangerouslySetInnerHTML={{ __html: ex.processed }}
-              />
+              <div key={i} className="usage-example" dangerouslySetInnerHTML={{ __html: ex.processed }} />
             ))}
           </div>
         )}
@@ -87,10 +83,7 @@ export default function EntryDetail() {
         {attributes.field_notes_background?.processed && (
           <div className="content-section">
             <div className="field-label">Notes / background</div>
-            <div
-              className="rich-text notes"
-              dangerouslySetInnerHTML={{ __html: attributes.field_notes_background.processed }}
-            />
+            <div className="rich-text notes" dangerouslySetInnerHTML={{ __html: attributes.field_notes_background.processed }} />
           </div>
         )}
 
