@@ -1,0 +1,19 @@
+uuid: 06c4e83c-b5dd-4789-8da6-72dbc68a6e51
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_quick_difference
+    - node.type.usage_difference
+id: node.usage_difference.field_quick_difference
+field_name: field_quick_difference
+entity_type: node
+bundle: usage_difference
+label: 'Quick Difference Summary'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

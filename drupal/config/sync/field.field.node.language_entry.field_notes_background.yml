@@ -1,0 +1,22 @@
+uuid: cbe17af1-35f2-4102-b73f-fb85280619be
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_notes_background
+    - node.type.language_entry
+  module:
+    - text
+id: node.language_entry.field_notes_background
+field_name: field_notes_background
+entity_type: node
+bundle: language_entry
+label: 'Notes / Story / Background'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

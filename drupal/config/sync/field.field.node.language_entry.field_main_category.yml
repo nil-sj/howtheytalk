@@ -1,0 +1,24 @@
+uuid: 88ac5c34-32c3-430a-a191-82d326e5c224
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_main_category
+    - node.type.language_entry
+    - taxonomy.vocabulary.main_categories
+id: node.language_entry.field_main_category
+field_name: field_main_category
+entity_type: node
+bundle: language_entry
+label: 'Main Category'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      main_categories: main_categories
+field_type: entity_reference

@@ -1,0 +1,22 @@
+uuid: 0f021fc4-7421-4350-9add-5b3e65c7cbb3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_detailed_explanation
+    - node.type.usage_difference
+  module:
+    - text
+id: node.usage_difference.field_detailed_explanation
+field_name: field_detailed_explanation
+entity_type: node
+bundle: usage_difference
+label: 'Detailed Explanation'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

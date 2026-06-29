@@ -1,0 +1,23 @@
+uuid: 259dc2fe-e479-43f0-89b8-c26e8c1c970b
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.usage_difference
+  module:
+    - node
+id: node_usage_difference
+label: 'Usage Difference'
+type: 'canonical_entities:node'
+pattern: '/usage-difference/[node:title]'
+selection_criteria:
+  node_type:
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: node
+    bundles:
+      usage_difference: usage_difference
+selection_logic: and
+weight: 1
+relationships: {  }

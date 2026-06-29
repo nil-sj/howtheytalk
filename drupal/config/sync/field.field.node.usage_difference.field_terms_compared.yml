@@ -1,0 +1,19 @@
+uuid: 50d0537c-af84-4454-86fa-98ed1ac50237
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_terms_compared
+    - node.type.usage_difference
+id: node.usage_difference.field_terms_compared
+field_name: field_terms_compared
+entity_type: node
+bundle: usage_difference
+label: 'Terms Being Compared'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

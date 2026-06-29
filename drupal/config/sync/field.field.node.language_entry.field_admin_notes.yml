@@ -1,0 +1,19 @@
+uuid: 5342d60e-f025-4dc5-91c9-6bc257602613
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_admin_notes
+    - node.type.language_entry
+id: node.language_entry.field_admin_notes
+field_name: field_admin_notes
+entity_type: node
+bundle: language_entry
+label: 'Admin Private Notes'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

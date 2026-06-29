@@ -1,0 +1,22 @@
+uuid: 284b6059-c028-4f8e-ad9b-0c98688e45df
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_usage_examples
+    - node.type.language_entry
+  module:
+    - text
+id: node.language_entry.field_usage_examples
+field_name: field_usage_examples
+entity_type: node
+bundle: language_entry
+label: 'Usage Examples'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

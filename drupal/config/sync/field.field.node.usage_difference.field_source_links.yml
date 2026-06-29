@@ -1,0 +1,23 @@
+uuid: acb6e261-66c9-4b20-a692-e12f9daf7a7d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_source_links
+    - node.type.usage_difference
+  module:
+    - link
+id: node.usage_difference.field_source_links
+field_name: field_source_links
+entity_type: node
+bundle: usage_difference
+label: 'Source / External Links'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 17
+field_type: link

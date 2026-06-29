@@ -1,0 +1,11 @@
+uuid: 0ec42c9b-0d2b-4fa3-b510-3ce8f564d1e2
+langcode: en
+status: true
+dependencies: {  }
+name: 'Language Entry'
+type: language_entry
+description: 'A word, phrase, idiom, or language observation.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

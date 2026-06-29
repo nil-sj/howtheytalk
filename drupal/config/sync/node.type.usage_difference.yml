@@ -1,0 +1,11 @@
+uuid: 00d84a15-d25a-4598-ad61-c32ad5708c6a
+langcode: en
+status: true
+dependencies: {  }
+name: 'Usage Difference'
+type: usage_difference
+description: 'Comparison between two or more similar words or phrases.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

@@ -1,0 +1,19 @@
+uuid: 97abaa54-d7cf-41b0-a13d-e653e6a910e3
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_common_mistake
+field_name: field_common_mistake
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

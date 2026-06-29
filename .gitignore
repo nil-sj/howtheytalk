@@ -1,0 +1,25 @@
+# Secrets — never commit these
+.env
+.env.prod
+.env.local
+
+# Logs
+logs/
+*.log
+
+# Drupal generated files (stored in Docker volume, not git)
+drupal/web/sites/default/files/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Node (React frontend, added later)
+react-frontend/node_modules/
+react-frontend/dist/
+react-frontend/.env
+react-frontend/.env.local

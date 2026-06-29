@@ -1,0 +1,66 @@
+# TalkNotes - Production
+# Database: uses shared PostgreSQL container in /home/nil/docker/databases/postgres
+# Place this file at: /home/nil/docker/projects/talknotes/docker-compose.prod.yml
+#
+# Deploy with:
+#   docker compose -f docker-compose.prod.yml --env-file .env.prod up -d
+
+services:
+
+  drupal:
+    image: drupal:10-apache
+    container_name: talknotes_drupal
+    restart: always
+    expose:
+      - "80"    # not published to host — Nginx Proxy Manager handles the port
+    environment:
+      POSTGRES_HOST: ${POSTGRES_HOST}
+      POSTGRES_PORT: ${POSTGRES_PORT:-5432}
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      DRUPAL_HASH_SALT: ${DRUPAL_HASH_SALT}
+      SITE_URL: ${SITE_URL}
+      # Tell Drupal it's behind a reverse proxy
+      DRUPAL_REVERSE_PROXY: "true"
+      DRUPAL_TRUSTED_HOST: ${TRUSTED_HOST}
+    volumes:
+      - drupal_files:/var/www/html/sites/default/files
+      - ./drupal/modules/custom:/var/www/html/modules/custom:ro
+      - ./drupal/themes/custom:/var/www/html/themes/custom:ro
+      - ./drupal/config/sync:/var/www/html/config/sync:ro
+      - ./drupal/settings/settings.php:/var/www/html/sites/default/settings.php:ro
+      - ./drupal/settings/services.yml:/var/www/html/sites/default/services.yml:ro
+    networks:
+      - talknotes_net
+      - databases_net
+      - proxy_net       # network your Nginx Proxy Manager container uses
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+
+volumes:
+  drupal_files:
+    name: talknotes_drupal_files
+
+networks:
+  talknotes_net:
+    name: talknotes_net
+  databases_net:
+    external: true
+    name: postgres_default
+  proxy_net:
+    external: true
+    name: npm_default

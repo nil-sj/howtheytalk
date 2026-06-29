@@ -1,0 +1,22 @@
+uuid: 3a18cfe4-dec0-40cd-b3e2-de17b1cb5799
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_notes_background
+    - node.type.usage_difference
+  module:
+    - text
+id: node.usage_difference.field_notes_background
+field_name: field_notes_background
+entity_type: node
+bundle: usage_difference
+label: Notes
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

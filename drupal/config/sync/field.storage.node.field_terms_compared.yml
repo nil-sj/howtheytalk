@@ -1,0 +1,19 @@
+uuid: 99dc028b-7ddd-4e1d-9143-854b464c3a8c
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_terms_compared
+field_name: field_terms_compared
+entity_type: node
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

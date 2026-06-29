@@ -1,0 +1,23 @@
+uuid: fb15c299-5a56-44ad-b6df-8aac62b950b9
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.main_categories
+  module:
+    - taxonomy
+id: taxonomy_main_categories
+label: 'Main Categories'
+type: 'canonical_entities:taxonomy_term'
+pattern: '/categories/[term:name]'
+selection_criteria:
+  taxonomy_vocabulary:
+    id: 'entity_bundle:taxonomy_term'
+    negate: false
+    context_mapping:
+      taxonomy_term: taxonomy_term
+    bundles:
+      main_categories: main_categories
+selection_logic: and
+weight: 0
+relationships: {  }

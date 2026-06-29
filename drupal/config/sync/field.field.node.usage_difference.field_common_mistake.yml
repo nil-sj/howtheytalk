@@ -1,0 +1,22 @@
+uuid: 6e731702-aa70-4194-8fe4-ce14660d5969
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_common_mistake
+    - node.type.usage_difference
+  module:
+    - text
+id: node.usage_difference.field_common_mistake
+field_name: field_common_mistake
+entity_type: node
+bundle: usage_difference
+label: 'Common Mistake'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

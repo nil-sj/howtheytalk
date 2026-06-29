@@ -1,0 +1,19 @@
+uuid: 280f2517-00d6-4539-8290-95c20de9d1b1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_admin_notes
+    - node.type.usage_difference
+id: node.usage_difference.field_admin_notes
+field_name: field_admin_notes
+entity_type: node
+bundle: usage_difference
+label: 'Admin Private Notes'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

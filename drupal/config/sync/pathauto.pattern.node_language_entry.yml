@@ -1,0 +1,23 @@
+uuid: e54025a5-902f-4d97-9345-21437073adda
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.language_entry
+  module:
+    - node
+id: node_language_entry
+label: 'Language Entry'
+type: 'canonical_entities:node'
+pattern: '/entries/[node:title]'
+selection_criteria:
+  node_type:
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: node
+    bundles:
+      language_entry: language_entry
+selection_logic: and
+weight: 0
+relationships: {  }

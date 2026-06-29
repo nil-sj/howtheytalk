@@ -1,0 +1,61 @@
+# TalkNotes - Development
+# Database: uses shared PostgreSQL container in /home/nil/docker/databases/postgres
+# Place this file at: /home/nil/docker/projects/talknotes/docker-compose.yml
+
+services:
+
+  drupal:
+    image: drupal:10-apache
+    container_name: talknotes_drupal_dev
+    restart: unless-stopped
+    ports:
+      - "9022:80"
+    environment:
+      # These are read by Drupal's settings.php via getenv()
+      POSTGRES_HOST: ${POSTGRES_HOST}
+      POSTGRES_PORT: ${POSTGRES_PORT:-5432}
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      DRUPAL_HASH_SALT: ${DRUPAL_HASH_SALT}
+      SITE_URL: ${SITE_URL:-http://localhost:9020}
+    volumes:
+      # Drupal files (user uploads, generated files)
+      - drupal_files:/var/www/html/sites/default/files
+      # Custom modules you write
+      - ./drupal/modules/custom:/var/www/html/modules/custom
+      # Custom themes you write
+      - ./drupal/themes/custom:/var/www/html/themes/custom
+      # Config sync directory (version controlled)
+      - ./drupal/config/sync:/var/www/html/config/sync
+      # Settings file with env var reads
+      - ./drupal/settings/settings.php:/var/www/html/sites/default/settings.php
+      - ./drupal/settings/services.yml:/var/www/html/sites/default/services.yml
+    networks:
+      - talknotes_net
+      - databases_net   # shared network where your postgres container lives
+    depends_on: []      # no local DB — postgres is external
+
+  # ── Adminer (optional, dev only) ─────────────────────────────────────────
+  # Remove this block if you already have a central Adminer elsewhere
+  adminer:
+    image: adminer:latest
+    container_name: talknotes_adminer_dev
+    restart: unless-stopped
+    ports:
+      - "8091:8080"
+    networks:
+      - databases_net
+    profiles:
+      - tools   # only starts with: docker compose --profile tools up
+
+volumes:
+  drupal_files:
+    name: talknotes_drupal_files_dev
+
+networks:
+  talknotes_net:
+    name: talknotes_net_dev
+  databases_net:
+    external: true
+    name: postgres_default
