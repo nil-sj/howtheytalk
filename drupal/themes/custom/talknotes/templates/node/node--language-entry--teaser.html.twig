@@ -1,0 +1,16 @@
+<article{{ attributes.addClass('entry-card') }}>
+  <div class="entry-card__top">
+    {% if content.field_main_category %}
+      <span class="category-badge">{{ content.field_main_category }}</span>
+    {% endif %}
+  </div>
+  <h3 class="entry-card__title">
+    <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+  </h3>
+  {% if content.field_short_meaning %}
+    <div class="entry-card__meaning">{{ content.field_short_meaning }}</div>
+  {% endif %}
+  <div class="entry-card__meta">
+    <span class="entry-card__date">{{ node.createdtime|date('M j, Y') }}</span>
+  </div>
+</article>

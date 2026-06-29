@@ -1,0 +1,25 @@
+<?php
+
+/**
+ * @file
+ * TalkNotes theme functions and preprocess hooks.
+ */
+
+function talknotes_preprocess_node(&$variables) {
+  $node = $variables['node'];
+  $variables['attributes']['class'][] = 'node--type-' . $node->bundle();
+  $variables['url'] = $node->toUrl()->toString();
+}
+
+function talknotes_preprocess_html(&$variables) {
+  $node = \Drupal::routeMatch()->getParameter('node');
+  if ($node) {
+    $variables['attributes']['class'][] = 'page-node-type-' . $node->bundle();
+  }
+}
+
+function talknotes_preprocess_page(&$variables) {
+  $config = \Drupal::config('system.site');
+  $variables['site_name'] = $config->get('name');
+  $variables['site_slogan'] = $config->get('slogan');
+}
