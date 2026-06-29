@@ -7,6 +7,8 @@ import EntryDetail from './pages/EntryDetail'
 import Categories from './pages/Categories'
 import { UsageDifferences, NotFound } from './pages/UsageDifferences'
 import UsageDifferenceDetail from './pages/UsageDifferenceDetail'
+import Articles from './pages/Articles'
+import ArticleDetail from './pages/ArticleDetail'
 import './index.css'
 
 const queryClient = new QueryClient({
@@ -25,6 +27,8 @@ export default function App() {
             <Route path="categories" element={<Categories />} />
             <Route path="usage-difference" element={<UsageDifferences />} />
             <Route path="usage-difference/:slug" element={<UsageDifferenceDetail />} />
+            <Route path="articles" element={<Articles />} />
+            <Route path="articles/:slug" element={<ArticleDetail />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
