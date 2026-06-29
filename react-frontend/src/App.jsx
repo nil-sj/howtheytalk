@@ -13,6 +13,9 @@ import Contact from './pages/Contact'
 import Explore from './pages/Explore'
 import Search from './pages/Search'
 import WordOfDay from './pages/WordOfDay'
+import Flashcards from './pages/Flashcards'
+import Quizzes from './pages/Quizzes'
+import Hangman from './pages/Hangman'
 import './index.css'
 
 const queryClient = new QueryClient({
@@ -37,6 +40,9 @@ export default function App() {
             <Route path="contact" element={<Contact />} />
             <Route path="search" element={<Search />} />
             <Route path="word-of-the-day" element={<WordOfDay />} />
+            <Route path="flashcards" element={<Flashcards />} />
+            <Route path="quizzes" element={<Quizzes />} />
+            <Route path="hangman" element={<Hangman />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>

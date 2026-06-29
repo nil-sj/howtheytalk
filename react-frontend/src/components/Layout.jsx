@@ -40,9 +40,9 @@ export default function Layout() {
                 <div className="nav-dropdown-menu" onMouseEnter={openDropdown} onMouseLeave={closeDropdown}>
                   <Link to="/usage-difference" onClick={() => setPracticeOpen(false)}>🔄 Usage Differences</Link>
                   <Link to="/word-of-the-day" onClick={() => setPracticeOpen(false)}>📅 Word of the Day</Link>
-                  <span className="nav-dropdown-soon">🃏 Flashcards <span className="coming-soon">soon</span></span>
-                  <span className="nav-dropdown-soon">🧩 Quizzes <span className="coming-soon">soon</span></span>
-                  <span className="nav-dropdown-soon">🎯 Hangman <span className="coming-soon">soon</span></span>
+                  <Link to="/flashcards" onClick={() => setPracticeOpen(false)}>🃏 Flashcards</Link>
+                  <Link to="/quizzes" onClick={() => setPracticeOpen(false)}>🧩 Quizzes</Link>
+                  <Link to="/hangman" onClick={() => setPracticeOpen(false)}>🎯 Hangman</Link>
                 </div>
               )}
             </div>
@@ -80,9 +80,9 @@ export default function Layout() {
               <ul className="footer-links">
                 <li><Link to="/usage-difference">Usage differences</Link></li>
                 <li><Link to="/word-of-the-day">Word of the Day</Link></li>
-                <li><Link to="/explore">Flashcards <span style={{fontSize:'0.7rem',color:'var(--ink-faint)'}}>soon</span></Link></li>
-                <li><Link to="/explore">Quizzes <span style={{fontSize:'0.7rem',color:'var(--ink-faint)'}}>soon</span></Link></li>
-                <li><Link to="/explore">Hangman <span style={{fontSize:'0.7rem',color:'var(--ink-faint)'}}>soon</span></Link></li>
+                <li><Link to="/flashcards">Flashcards</Link></li>
+                <li><Link to="/quizzes">Quizzes</Link></li>
+                <li><Link to="/hangman">Hangman</Link></li>
               </ul>
             </div>
             <div className="footer-col">
