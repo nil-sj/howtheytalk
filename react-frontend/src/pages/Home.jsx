@@ -16,7 +16,9 @@ export default function Home() {
 
   const entries = entriesData?.data || []
   const included = entriesData?.included || []
-  const categories = categoriesData?.data || []
+  const categories = (categoriesData?.data || []).filter(
+    cat => cat.attributes.name !== 'Usage Difference'
+  )
 
   return (
     <div className="home">
@@ -31,7 +33,7 @@ export default function Home() {
         </p>
         <div className="hero-actions">
           <Link to="/entries" className="btn-primary">Browse all entries</Link>
-          <Link to="/usage-difference" className="btn-secondary">Usage differences</Link>
+          <Link to="/explore" className="btn-secondary">Explore more</Link>
         </div>
       </section>
 
@@ -40,11 +42,7 @@ export default function Home() {
           <h2 className="section-title">Browse by category</h2>
           <div className="category-grid">
             {categories.map(cat => (
-              <Link
-                key={cat.id}
-                to={`/entries?category=${cat.id}`}
-                className="category-card"
-              >
+              <Link key={cat.id} to={`/entries?category=${cat.id}`} className="category-card">
                 <span className="category-name">{cat.attributes.name}</span>
               </Link>
             ))}

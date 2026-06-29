@@ -1,0 +1,8 @@
+talknotes_api.contact_submit:
+  path: '/api/contact-submit'
+  defaults:
+    _controller: '\Drupal\talknotes_api\Controller\ContactController::submit'
+    _title: 'Contact Submit'
+  requirements:
+    _access: 'TRUE'
+  methods: [POST, OPTIONS]

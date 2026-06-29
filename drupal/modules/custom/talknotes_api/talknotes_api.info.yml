@@ -1,0 +1,5 @@
+name: TalkNotes API
+type: module
+description: 'Custom API endpoints for TalkNotes'
+core_version_requirement: ^10
+package: Custom

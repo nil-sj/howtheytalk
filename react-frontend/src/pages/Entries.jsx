@@ -21,7 +21,11 @@ export default function Entries() {
 
   const entries = entriesData?.data || []
   const included = entriesData?.included || []
-  const categories = categoriesData?.data || []
+
+  // Exclude Usage Difference from filter dropdown
+  const categories = (categoriesData?.data || []).filter(
+    cat => cat.attributes.name !== 'Usage Difference'
+  )
 
   function handleSearch(e) {
     e.preventDefault()
@@ -38,9 +42,7 @@ export default function Entries() {
     <div className="entries-page">
       <div className="page-header">
         <h1 className="page-title">All Entries</h1>
-        <p className="page-subtitle">
-          Words, phrases, idioms, and language observations
-        </p>
+        <p className="page-subtitle">Words, phrases, idioms, and language observations</p>
       </div>
 
       <form className="filter-bar" onSubmit={handleSearch}>

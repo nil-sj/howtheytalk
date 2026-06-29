@@ -9,6 +9,8 @@ import { UsageDifferences, NotFound } from './pages/UsageDifferences'
 import UsageDifferenceDetail from './pages/UsageDifferenceDetail'
 import Articles from './pages/Articles'
 import ArticleDetail from './pages/ArticleDetail'
+import Contact from './pages/Contact'
+import Explore from './pages/Explore'
 import './index.css'
 
 const queryClient = new QueryClient({
@@ -25,10 +27,12 @@ export default function App() {
             <Route path="entries" element={<Entries />} />
             <Route path="entries/:slug" element={<EntryDetail />} />
             <Route path="categories" element={<Categories />} />
+            <Route path="explore" element={<Explore />} />
             <Route path="usage-difference" element={<UsageDifferences />} />
             <Route path="usage-difference/:slug" element={<UsageDifferenceDetail />} />
             <Route path="articles" element={<Articles />} />
             <Route path="articles/:slug" element={<ArticleDetail />} />
+            <Route path="contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
