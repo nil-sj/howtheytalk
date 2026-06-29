@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 import { useSearchParams } from 'react-router-dom'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { getEntries, getCategories } from '../api/drupal'
 import EntryCard from '../components/EntryCard'
 
@@ -8,10 +8,11 @@ export default function Entries() {
   const [searchParams, setSearchParams] = useSearchParams()
   const [search, setSearch] = useState(searchParams.get('search') || '')
   const [category, setCategory] = useState(searchParams.get('category') || '')
+  const [page, setPage] = useState(Number(searchParams.get('page') || 0))
 
   const { data: entriesData, isLoading } = useQuery({
-    queryKey: ['entries', search, category],
-    queryFn: () => getEntries({ search, category })
+    queryKey: ['entries', search, category, page],
+    queryFn: () => getEntries({ search, category, page })
   })
 
   const { data: categoriesData } = useQuery({
@@ -21,21 +22,28 @@ export default function Entries() {
 
   const entries = entriesData?.data || []
   const included = entriesData?.included || []
-
-  // Exclude Usage Difference from filter dropdown
+  const hasNextPage = entriesData?._hasNextPage || false
   const categories = (categoriesData?.data || []).filter(
     cat => cat.attributes.name !== 'Usage Difference'
   )
 
   function handleSearch(e) {
     e.preventDefault()
-    setSearchParams({ search, category })
+    setPage(0)
+    setSearchParams({ search, category, page: 0 })
   }
 
   function handleReset() {
     setSearch('')
     setCategory('')
+    setPage(0)
     setSearchParams({})
+  }
+
+  function goToPage(p) {
+    setPage(p)
+    setSearchParams({ search, category, page: p })
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   return (
@@ -48,21 +56,14 @@ export default function Entries() {
       <form className="filter-bar" onSubmit={handleSearch}>
         <div className="filter-field">
           <label>Search</label>
-          <input
-            type="search"
-            placeholder="Search entries..."
-            value={search}
-            onChange={e => setSearch(e.target.value)}
-          />
+          <input type="search" placeholder="Search entries..." value={search} onChange={e => setSearch(e.target.value)} />
         </div>
         <div className="filter-field">
           <label>Category</label>
-          <select value={category} onChange={e => setCategory(e.target.value)}>
+          <select value={category} onChange={e => { setCategory(e.target.value); setPage(0); }}>
             <option value="">— Any —</option>
             {categories.map(cat => (
-              <option key={cat.id} value={cat.id}>
-                {cat.attributes.name}
-              </option>
+              <option key={cat.id} value={cat.id}>{cat.attributes.name}</option>
             ))}
           </select>
         </div>
@@ -75,19 +76,32 @@ export default function Entries() {
       {isLoading && <div className="loading">Loading entries...</div>}
 
       {!isLoading && entries.length === 0 && (
-        <div className="empty-state">
-          <p>No entries found. Try a different search or category.</p>
-        </div>
+        <div className="empty-state"><p>No entries found. Try a different search or category.</p></div>
       )}
 
       {!isLoading && entries.length > 0 && (
         <>
-          <p className="results-count">{entries.length} entries found</p>
+          <p className="results-count">
+            Showing {page * 24 + 1}–{page * 24 + entries.length} entries
+            {(page > 0 || hasNextPage) && ` — page ${page + 1}`}
+          </p>
           <div className="entries-grid">
             {entries.map(entry => (
               <EntryCard key={entry.id} entry={entry} included={included} />
             ))}
           </div>
+
+          {(page > 0 || hasNextPage) && (
+            <div className="pagination">
+              <button className="page-btn" onClick={() => goToPage(page - 1)} disabled={page === 0}>
+                ← Previous
+              </button>
+              <span className="page-indicator">Page {page + 1}</span>
+              <button className="page-btn" onClick={() => goToPage(page + 1)} disabled={!hasNextPage}>
+                Next →
+              </button>
+            </div>
+          )}
         </>
       )}
     </div>

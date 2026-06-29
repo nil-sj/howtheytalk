@@ -18,6 +18,22 @@ export async function getEntries({ search = '', category = '', page = 0 } = {}) 
   if (search) { params['filter[title][operator]'] = 'CONTAINS'; params['filter[title][value]'] = search; }
   if (category) params['filter[field_main_category.id]'] = category
   const res = await api.get('/jsonapi/node/language_entry', { params })
+  // hasNextPage: true if we got a full page of results
+  const data = res.data
+  data._hasNextPage = (data.data || []).length === 24
+  data._page = page
+  return data
+}
+
+export async function getRecentEntries() {
+  const res = await api.get('/jsonapi/node/language_entry', {
+    params: {
+      'filter[status]': 1,
+      'sort': '-created',
+      'page[limit]': 6,
+      'include': 'field_main_category',
+    }
+  })
   return res.data
 }
 
