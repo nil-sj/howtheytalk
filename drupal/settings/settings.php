@@ -31,3 +31,6 @@ $settings['trusted_host_patterns'] = [
 $settings['file_public_path']  = 'sites/default/files';
 $settings['file_private_path'] = '/var/www/html/sites/default/private';
 $settings['update_free_access'] = FALSE;
+
+// Load custom services.yml for CORS
+$settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
