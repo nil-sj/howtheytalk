@@ -34,3 +34,10 @@ $settings['update_free_access'] = FALSE;
 
 // Load custom services.yml for CORS
 $settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
+
+$settings['trusted_host_patterns'] = [
+  '^192\.168\.1\.157$',
+  '^localhost$',
+  '^talknotes\.codenil\.online$',
+  '^talknotes-app\.codenil\.online$',
+];

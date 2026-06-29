@@ -35,7 +35,7 @@ services:
     container_name: talknotes_react_dev
     restart: unless-stopped
     ports:
-      - "9023:3000"
+      - "9023:80"
     environment:
       - VITE_DRUPAL_URL=http://192.168.1.157:9022
     networks:

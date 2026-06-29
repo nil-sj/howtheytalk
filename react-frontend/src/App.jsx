@@ -6,12 +6,11 @@ import Entries from './pages/Entries'
 import EntryDetail from './pages/EntryDetail'
 import Categories from './pages/Categories'
 import { UsageDifferences, NotFound } from './pages/UsageDifferences'
+import UsageDifferenceDetail from './pages/UsageDifferenceDetail'
 import './index.css'
 
 const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: { staleTime: 5 * 60 * 1000, retry: 2 }
-  }
+  defaultOptions: { queries: { staleTime: 5 * 60 * 1000, retry: 2 } }
 })
 
 export default function App() {
@@ -25,6 +24,7 @@ export default function App() {
             <Route path="entries/:slug" element={<EntryDetail />} />
             <Route path="categories" element={<Categories />} />
             <Route path="usage-difference" element={<UsageDifferences />} />
+            <Route path="usage-difference/:slug" element={<UsageDifferenceDetail />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
