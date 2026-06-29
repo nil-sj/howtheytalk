@@ -9,7 +9,7 @@ export default function Layout() {
 
   function handleSearch(e) {
     e.preventDefault()
-    if (search.trim()) navigate(`/entries?search=${encodeURIComponent(search.trim())}`)
+    if (search.trim()) navigate(`/search?q=${encodeURIComponent(search.trim())}`)
   }
 
   function openDropdown() {
@@ -50,7 +50,12 @@ export default function Layout() {
             <NavLink to="/contact">Contact</NavLink>
           </nav>
           <form className="header-search" onSubmit={handleSearch}>
-            <input type="search" placeholder="Search entries..." value={search} onChange={e => setSearch(e.target.value)} />
+            <input
+              type="search"
+              placeholder="Search everything..."
+              value={search}
+              onChange={e => setSearch(e.target.value)}
+            />
             <button type="submit">Search</button>
           </form>
         </div>
@@ -87,10 +92,10 @@ export default function Layout() {
             <div className="footer-col">
               <div className="footer-heading">Site</div>
               <ul className="footer-links">
+                <li><Link to="/search">Search</Link></li>
                 <li><Link to="/contact">Suggest a word</Link></li>
                 <li><Link to="/contact">Contact</Link></li>
                 <li><a href="https://talknotes-app.codenil.online/user/login" target="_blank" rel="noopener">Admin login</a></li>
-                <li><a href="https://talknotes-app.codenil.online" target="_blank" rel="noopener">Drupal site</a></li>
               </ul>
             </div>
           </div>
