@@ -6,3 +6,57 @@ talknotes_api.contact_submit:
   requirements:
     _access: 'TRUE'
   methods: [POST, OPTIONS]
+
+talknotes_api.contact_submissions:
+  path: '/api/contact-submissions'
+  defaults:
+    _controller: '\Drupal\talknotes_api\Controller\ContactController::submissions'
+    _title: 'Contact Submissions'
+  requirements:
+    _access: 'TRUE'
+  methods: [GET, OPTIONS]
+
+talknotes_api.create_entry:
+  path: '/api/create-entry'
+  defaults:
+    _controller: '\Drupal\talknotes_api\Controller\EntryController::createEntry'
+    _title: 'Create Entry'
+  requirements:
+    _access: 'TRUE'
+  methods: [POST, OPTIONS]
+
+talknotes_api.admin_stats:
+  path: '/api/admin-stats'
+  defaults:
+    _controller: '\Drupal\talknotes_api\Controller\StatsController::adminStats'
+    _title: 'Admin Stats'
+  requirements:
+    _access: 'TRUE'
+  methods: [GET, OPTIONS]
+
+talknotes_api.recent_drafts:
+  path: '/api/recent-drafts'
+  defaults:
+    _controller: '\Drupal\talknotes_api\Controller\StatsController::recentDrafts'
+    _title: 'Recent Drafts'
+  requirements:
+    _access: 'TRUE'
+  methods: [GET, OPTIONS]
+
+talknotes_api.update_entry:
+  path: '/api/update-entry/{nid}'
+  defaults:
+    _controller: '\Drupal\talknotes_api\Controller\EntryController::updateEntry'
+    _title: 'Update Entry'
+  requirements:
+    _access: 'TRUE'
+  methods: [POST, OPTIONS]
+
+talknotes_api.get_entry:
+  path: '/api/get-entry/{nid}'
+  defaults:
+    _controller: '\Drupal\talknotes_api\Controller\EntryController::getEntry'
+    _title: 'Get Entry'
+  requirements:
+    _access: 'TRUE'
+  methods: [GET, OPTIONS]

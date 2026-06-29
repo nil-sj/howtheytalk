@@ -8,6 +8,10 @@ use Symfony\Component\HttpFoundation\Request;
 
 class ContactController extends ControllerBase {
 
+  // Simple shared secret for admin API access
+  // Change this to something unique for your installation
+  const ADMIN_SECRET = 'talknotes-admin-2026';
+
   public function submit(Request $request): JsonResponse {
     if ($request->getMethod() === 'OPTIONS') {
       return new JsonResponse(NULL, 204, $this->corsHeaders());
@@ -49,11 +53,47 @@ class ContactController extends ControllerBase {
     }
   }
 
+  public function submissions(Request $request): JsonResponse {
+    if ($request->getMethod() === 'OPTIONS') {
+      return new JsonResponse(NULL, 204, $this->corsHeaders());
+    }
+
+    $secret = $request->headers->get('X-Admin-Secret');
+    if ($secret !== self::ADMIN_SECRET) {
+      return new JsonResponse(['error' => 'Unauthorized'], 403, $this->corsHeaders());
+    }
+
+    try {
+      $storage = \Drupal::entityTypeManager()->getStorage('webform_submission');
+      $query = $storage->getQuery()
+        ->condition('webform_id', 'suggest_a_word')
+        ->sort('created', 'DESC')
+        ->range(0, 30)
+        ->accessCheck(FALSE);
+      $ids = $query->execute();
+      $entities = $storage->loadMultiple($ids);
+
+      $result = [];
+      foreach ($entities as $sub) {
+        $result[] = [
+          'id'      => $sub->id(),
+          'created' => $sub->getCreatedTime(),
+          'data'    => $sub->getData(),
+        ];
+      }
+
+      return new JsonResponse(['submissions' => $result], 200, $this->corsHeaders());
+    }
+    catch (\Exception $e) {
+      return new JsonResponse(['error' => $e->getMessage()], 500, $this->corsHeaders());
+    }
+  }
+
   private function corsHeaders(): array {
     return [
       'Access-Control-Allow-Origin' => '*',
-      'Access-Control-Allow-Methods' => 'POST, OPTIONS',
-      'Access-Control-Allow-Headers' => 'Content-Type, Accept',
+      'Access-Control-Allow-Methods' => 'GET, POST, OPTIONS',
+      'Access-Control-Allow-Headers' => 'Content-Type, Accept, X-CSRF-Token, X-Admin-Secret',
     ];
   }
 }

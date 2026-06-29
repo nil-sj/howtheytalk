@@ -16,6 +16,19 @@ import WordOfDay from './pages/WordOfDay'
 import Flashcards from './pages/Flashcards'
 import Quizzes from './pages/Quizzes'
 import Hangman from './pages/Hangman'
+import About from './pages/About'
+import PrivacyPolicy from './pages/PrivacyPolicy'
+import TermsOfUse from './pages/TermsOfUse'
+import AdminLayout from './admin/components/AdminLayout'
+import AdminGuard from './admin/components/AdminGuard'
+import AdminLogin from './admin/pages/AdminLogin'
+import AdminDashboard from './admin/pages/AdminDashboard'
+import AdminEntries from './admin/pages/AdminEntries'
+import AdminNewEntry from './admin/pages/AdminNewEntry'
+import AdminEditEntry from './admin/pages/AdminEditEntry'
+import AdminSubmissions from './admin/pages/AdminSubmissions'
+import AdminSettings from './admin/pages/AdminSettings'
+import AdminSuggest from './admin/pages/AdminSuggest'
 import './index.css'
 
 const queryClient = new QueryClient({
@@ -43,7 +56,20 @@ export default function App() {
             <Route path="flashcards" element={<Flashcards />} />
             <Route path="quizzes" element={<Quizzes />} />
             <Route path="hangman" element={<Hangman />} />
+            <Route path="about" element={<About />} />
+            <Route path="privacy" element={<PrivacyPolicy />} />
+            <Route path="terms" element={<TermsOfUse />} />
             <Route path="*" element={<NotFound />} />
+          </Route>
+          <Route path="/admin/login" element={<AdminLogin />} />
+          <Route path="/admin" element={<AdminGuard><AdminLayout /></AdminGuard>}>
+            <Route index element={<AdminDashboard />} />
+            <Route path="entries" element={<AdminEntries />} />
+            <Route path="entries/new" element={<AdminNewEntry />} />
+            <Route path="entries/:nid/edit" element={<AdminEditEntry />} />
+            <Route path="submissions" element={<AdminSubmissions />} />
+            <Route path="settings" element={<AdminSettings />} />
+            <Route path="suggest" element={<AdminSuggest />} />
           </Route>
         </Routes>
       </BrowserRouter>
