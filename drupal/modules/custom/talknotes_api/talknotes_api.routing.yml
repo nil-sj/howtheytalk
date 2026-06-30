@@ -60,3 +60,39 @@ talknotes_api.get_entry:
   requirements:
     _access: 'TRUE'
   methods: [GET, OPTIONS]
+
+talknotes_api.create_usage_diff:
+  path: '/api/create-usage-diff'
+  defaults:
+    _controller: '\Drupal\talknotes_api\Controller\UsageDiffController::createEntry'
+    _title: 'Create Usage Difference'
+  requirements:
+    _access: 'TRUE'
+  methods: [POST, OPTIONS]
+
+talknotes_api.get_usage_diff:
+  path: '/api/get-usage-diff/{nid}'
+  defaults:
+    _controller: '\Drupal\talknotes_api\Controller\UsageDiffController::getEntry'
+    _title: 'Get Usage Difference'
+  requirements:
+    _access: 'TRUE'
+  methods: [GET, OPTIONS]
+
+talknotes_api.update_usage_diff:
+  path: '/api/update-usage-diff/{nid}'
+  defaults:
+    _controller: '\Drupal\talknotes_api\Controller\UsageDiffController::updateEntry'
+    _title: 'Update Usage Difference'
+  requirements:
+    _access: 'TRUE'
+  methods: [POST, OPTIONS]
+
+talknotes_api.list_usage_diffs:
+  path: '/api/list-usage-diffs'
+  defaults:
+    _controller: '\Drupal\talknotes_api\Controller\UsageDiffController::listEntries'
+    _title: 'List Usage Differences'
+  requirements:
+    _access: 'TRUE'
+  methods: [GET, OPTIONS]

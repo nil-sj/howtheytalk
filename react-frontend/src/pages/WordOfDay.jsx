@@ -10,6 +10,7 @@ export default function WordOfDay() {
   })
 
   const todayStr = new Date().toLocaleDateString('en-US', {
+    timeZone: 'America/New_York',
     weekday: 'long', month: 'long', day: 'numeric', year: 'numeric'
   })
 

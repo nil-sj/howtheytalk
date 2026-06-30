@@ -778,3 +778,11 @@ a:hover { color: var(--amber); }
   .admin-analytics-stats { grid-template-columns: repeat(2, 1fr); }
   .admin-analytics-grid { grid-template-columns: 1fr; }
 }
+
+/* Analytics label fix */
+.admin-analytics-bar-wrap { flex-direction: column; gap: 4px; align-items: flex-start; }
+.admin-analytics-bar { width: 100%; max-width: 100%; }
+.admin-analytics-label { max-width: 100%; font-size: 0.78rem; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 100%; }
+
+/* Wider hero search */
+.hero-search { max-width: 680px; }

@@ -26,6 +26,9 @@ import AdminDashboard from './admin/pages/AdminDashboard'
 import AdminEntries from './admin/pages/AdminEntries'
 import AdminNewEntry from './admin/pages/AdminNewEntry'
 import AdminEditEntry from './admin/pages/AdminEditEntry'
+import AdminUsageDiffs from './admin/pages/AdminUsageDiffs'
+import AdminNewUsageDiff from './admin/pages/AdminNewUsageDiff'
+import AdminEditUsageDiff from './admin/pages/AdminEditUsageDiff'
 import AdminSubmissions from './admin/pages/AdminSubmissions'
 import AdminSettings from './admin/pages/AdminSettings'
 import AdminSuggest from './admin/pages/AdminSuggest'
@@ -68,6 +71,9 @@ export default function App() {
             <Route path="entries" element={<AdminEntries />} />
             <Route path="entries/new" element={<AdminNewEntry />} />
             <Route path="entries/:nid/edit" element={<AdminEditEntry />} />
+            <Route path="usage-diffs" element={<AdminUsageDiffs />} />
+            <Route path="usage-diffs/new" element={<AdminNewUsageDiff />} />
+            <Route path="usage-diffs/:nid/edit" element={<AdminEditUsageDiff />} />
             <Route path="submissions" element={<AdminSubmissions />} />
             <Route path="settings" element={<AdminSettings />} />
             <Route path="suggest" element={<AdminSuggest />} />

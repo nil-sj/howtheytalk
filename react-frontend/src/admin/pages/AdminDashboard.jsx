@@ -17,6 +17,7 @@ export default function AdminDashboard() {
     { icon: '✏️', title: 'New draft entry', desc: 'Quick capture with AI drafting', to: '/admin/entries/new' },
     { icon: '✨', title: 'AI content suggestions', desc: 'Get new entry ideas based on what you have', to: '/admin/suggest' },
     { icon: '📖', title: 'All entries', desc: 'Browse, filter and edit entries', to: '/admin/entries' },
+    { icon: '🔄', title: 'Usage differences', desc: 'Manage word comparison entries', to: '/admin/usage-diffs' },
     { icon: '📬', title: 'Contact submissions', desc: 'View word suggestions and messages', to: '/admin/submissions' },
     { icon: '⚙️', title: 'AI settings', desc: 'Configure API provider and keys', to: '/admin/settings' },
     { icon: '🗂️', title: 'Full content management', desc: 'Edit, revise, manage in Drupal', href: `${DRUPAL}/admin/content` },
@@ -34,7 +35,7 @@ export default function AdminDashboard() {
         {[
           { label: 'Published entries', value: stats?.publishedEntries ?? '…', to: '/admin/entries?status=published' },
           { label: 'Draft entries', value: stats?.draftEntries ?? '…', to: '/admin/entries?status=draft' },
-          { label: 'Usage differences', value: stats?.usageDifferences ?? '…', href: `${DRUPAL}/admin/content` },
+          { label: 'Usage differences', value: stats?.usageDifferences ?? '…', to: '/admin/usage-diffs' },
           { label: 'Articles', value: stats?.articles ?? '…', href: `${DRUPAL}/admin/content` },
         ].map(s => s.to ? (
           <Link key={s.label} to={s.to} className="admin-stat-card">

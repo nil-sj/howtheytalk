@@ -156,8 +156,8 @@ export default function AdminAnalytics() {
                   {pages.slice(0, 10).map((p, i) => (
                     <div key={i} className="admin-analytics-row">
                       <div className="admin-analytics-bar-wrap">
+                        <span className="admin-analytics-label" title={p.x}>{p.x || '/'}</span>
                         <div className="admin-analytics-bar" style={{width: pct(p.y, maxVal(pages))}} />
-                        <span className="admin-analytics-label" title={p.x}>{p.x}</span>
                       </div>
                       <span className="admin-analytics-count">{fmt(p.y)}</span>
                     </div>
@@ -173,8 +173,8 @@ export default function AdminAnalytics() {
                   {referrers.slice(0, 10).map((r, i) => (
                     <div key={i} className="admin-analytics-row">
                       <div className="admin-analytics-bar-wrap">
-                        <div className="admin-analytics-bar admin-analytics-bar--ref" style={{width: pct(r.y, maxVal(referrers))}} />
                         <span className="admin-analytics-label">{r.x || 'Direct'}</span>
+                        <div className="admin-analytics-bar admin-analytics-bar--ref" style={{width: pct(r.y, maxVal(referrers))}} />
                       </div>
                       <span className="admin-analytics-count">{fmt(r.y)}</span>
                     </div>
@@ -190,8 +190,8 @@ export default function AdminAnalytics() {
                   {devices.map((d, i) => (
                     <div key={i} className="admin-analytics-row">
                       <div className="admin-analytics-bar-wrap">
-                        <div className="admin-analytics-bar admin-analytics-bar--device" style={{width: pct(d.y, maxVal(devices))}} />
                         <span className="admin-analytics-label">{d.x || 'Unknown'}</span>
+                        <div className="admin-analytics-bar admin-analytics-bar--device" style={{width: pct(d.y, maxVal(devices))}} />
                       </div>
                       <span className="admin-analytics-count">{fmt(d.y)}</span>
                     </div>
@@ -207,8 +207,8 @@ export default function AdminAnalytics() {
                   {browsers.map((b, i) => (
                     <div key={i} className="admin-analytics-row">
                       <div className="admin-analytics-bar-wrap">
-                        <div className="admin-analytics-bar admin-analytics-bar--browser" style={{width: pct(b.y, maxVal(browsers))}} />
                         <span className="admin-analytics-label">{b.x || 'Unknown'}</span>
+                        <div className="admin-analytics-bar admin-analytics-bar--browser" style={{width: pct(b.y, maxVal(browsers))}} />
                       </div>
                       <span className="admin-analytics-count">{fmt(b.y)}</span>
                     </div>

@@ -17,6 +17,7 @@ export default function AdminLayout() {
           <NavLink to="/admin" end>📊 Dashboard</NavLink>
           <NavLink to="/admin/entries">📖 Entries</NavLink>
           <NavLink to="/admin/entries/new">✏️ New entry</NavLink>
+          <NavLink to="/admin/usage-diffs">🔄 Usage differences</NavLink>
           <NavLink to="/admin/suggest">✨ AI suggestions</NavLink>
           <NavLink to="/admin/submissions">📬 Submissions</NavLink>
           <NavLink to="/admin/analytics">📈 Analytics</NavLink>
