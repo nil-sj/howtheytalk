@@ -1,6 +1,8 @@
+import useDocumentMeta from '../hooks/useDocumentMeta'
 import { Link } from 'react-router-dom'
 
 export default function About() {
+  useDocumentMeta('About', 'Learn about TalkNotes, a personal English language diary for non-native speakers learning practical American English.')
   return (
     <div className="about-page">
       <div className="about-hero">

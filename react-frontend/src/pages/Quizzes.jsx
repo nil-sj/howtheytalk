@@ -1,3 +1,4 @@
+import useDocumentMeta from '../hooks/useDocumentMeta'
 import { useQuery } from '@tanstack/react-query'
 import { useState, useEffect } from 'react'
 import { useSearchParams } from 'react-router-dom'
@@ -117,10 +118,17 @@ function QuizGame({ questions, categoryName, onExit }) {
 }
 
 export default function Quizzes() {
+  useDocumentMeta('Quizzes', 'Test your knowledge of American English idioms, vocabulary, and phrases with short quizzes.')
   const [searchParams] = useSearchParams()
   const preselectedCatId = searchParams.get('category')
 
   const [selectedCat, setSelectedCat] = useState(null)
+
+  useEffect(() => {
+    if (selectedCat && window.innerWidth <= 768) {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+  }, [selectedCat])
   const [started, setStarted] = useState(false)
   const [questions, setQuestions] = useState([])
   const [loading, setLoading] = useState(false)

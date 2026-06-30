@@ -1,3 +1,4 @@
+import useDocumentMeta from '../hooks/useDocumentMeta'
 import { useQuery } from '@tanstack/react-query'
 import { useState, useEffect } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
@@ -105,10 +106,17 @@ function FlashcardDeck({ cards, categoryName, onExit }) {
 }
 
 export default function Flashcards() {
+  useDocumentMeta('Flashcards', 'Practice American English words and phrases with interactive flashcards by category.')
   const [searchParams] = useSearchParams()
   const preselectedCatId = searchParams.get('category')
 
   const [selectedCat, setSelectedCat] = useState(null)
+
+  useEffect(() => {
+    if (selectedCat && window.innerWidth <= 768) {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+  }, [selectedCat])
   const [started, setStarted] = useState(false)
 
   const { data: categoriesData, isLoading: catsLoading } = useQuery({

@@ -1,9 +1,11 @@
+import useDocumentMeta from '../hooks/useDocumentMeta'
 import { useState } from 'react'
 import axios from 'axios'
 
 const DRUPAL_BASE = import.meta.env.VITE_DRUPAL_URL || 'http://192.168.1.157:9022'
 
 export default function Contact() {
+  useDocumentMeta('Contact', 'Suggest a word, report an issue, or get in touch with TalkNotes.')
   const [form, setForm] = useState({
     your_name: '', your_email: '', message_type: 'suggest',
     suggested_word: '', message: '', source_context: ''

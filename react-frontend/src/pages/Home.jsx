@@ -1,3 +1,4 @@
+import useDocumentMeta from '../hooks/useDocumentMeta'
 import { useQuery } from '@tanstack/react-query'
 import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
@@ -7,6 +8,7 @@ import { getWordOfDay } from '../api/wordofday'
 import EntryCard from '../components/EntryCard'
 
 export default function Home() {
+  useDocumentMeta(null, 'Discover American English idioms, phrases, business lingo, and usage differences — a personal language diary for practical, everyday English.')
   const [search, setSearch] = useState('')
   const navigate = useNavigate()
 

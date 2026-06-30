@@ -1,3 +1,4 @@
+import useDocumentMeta from '../hooks/useDocumentMeta'
 import { useQuery } from '@tanstack/react-query'
 import { useParams, Link } from 'react-router-dom'
 import { getEntry, getIncluded } from '../api/drupal'
@@ -20,6 +21,11 @@ export default function EntryDetail() {
   )
 
   const { attributes, relationships } = entry
+
+  useDocumentMeta(
+    attributes.title,
+    attributes.field_short_meaning || `Learn the meaning, usage, and origin of "${attributes.title}" in American English.`
+  )
   const included = entry._included || []
 
   const categoryRel = relationships?.field_main_category?.data

@@ -1,8 +1,10 @@
+import useDocumentMeta from '../hooks/useDocumentMeta'
 import { useQuery } from '@tanstack/react-query'
 import { Link } from 'react-router-dom'
 import { getWordOfDay } from '../api/wordofday'
 
 export default function WordOfDay() {
+  useDocumentMeta('Word of the Day', 'A new American English word or phrase featured daily, with meaning, examples, and cultural notes.')
   const { data: entry, isLoading } = useQuery({
     queryKey: ['word-of-day'],
     queryFn: getWordOfDay,

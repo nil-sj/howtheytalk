@@ -1,3 +1,4 @@
+import useDocumentMeta from '../hooks/useDocumentMeta'
 import { useQuery } from '@tanstack/react-query'
 import { useState, useEffect, useCallback } from 'react'
 import { useSearchParams } from 'react-router-dom'
@@ -157,10 +158,17 @@ function HangmanGame({ entry, categoryName, onNext, onExit }) {
 }
 
 export default function Hangman() {
+  useDocumentMeta('Hangman', 'Play Hangman with real American English words and phrases from the TalkNotes collection.')
   const [searchParams] = useSearchParams()
   const preselectedCatId = searchParams.get('category')
 
   const [selectedCat, setSelectedCat] = useState(null)
+
+  useEffect(() => {
+    if (selectedCat && window.innerWidth <= 768) {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+  }, [selectedCat])
   const [entry, setEntry] = useState(null)
   const [loading, setLoading] = useState(false)
   const [started, setStarted] = useState(false)

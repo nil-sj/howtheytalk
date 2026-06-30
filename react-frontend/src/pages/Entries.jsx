@@ -1,3 +1,4 @@
+import useDocumentMeta from '../hooks/useDocumentMeta'
 import { useQuery } from '@tanstack/react-query'
 import { useSearchParams } from 'react-router-dom'
 import { useState } from 'react'
@@ -5,6 +6,7 @@ import { getEntries, getCategories } from '../api/drupal'
 import EntryCard from '../components/EntryCard'
 
 export default function Entries() {
+  useDocumentMeta('All Entries', 'Browse the full collection of American English words, phrases, idioms, and language observations.')
   const [searchParams, setSearchParams] = useSearchParams()
   const [search, setSearch] = useState(searchParams.get('search') || '')
   const [category, setCategory] = useState(searchParams.get('category') || '')

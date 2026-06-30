@@ -1,9 +1,11 @@
+import useDocumentMeta from '../hooks/useDocumentMeta'
 import { useQuery } from '@tanstack/react-query'
 import { Link } from 'react-router-dom'
 import { getCategories } from '../api/drupal'
 import { getCategoryCounts } from '../api/counts'
 
 export default function Categories() {
+  useDocumentMeta('Categories', 'Browse English words and phrases by category — Business Lingo, American Lingo, Idioms, Cultural Context, and more.')
   const { data, isLoading } = useQuery({ queryKey: ['categories'], queryFn: getCategories })
   const { data: categoryCounts } = useQuery({ queryKey: ['category-counts'], queryFn: getCategoryCounts, staleTime: 10 * 60 * 1000 })
 

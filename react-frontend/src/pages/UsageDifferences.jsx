@@ -1,8 +1,10 @@
+import useDocumentMeta from '../hooks/useDocumentMeta'
 import { useQuery } from '@tanstack/react-query'
 import { Link } from 'react-router-dom'
 import { getUsageDifferences } from '../api/drupal'
 
 export function UsageDifferences() {
+  useDocumentMeta('Usage Differences', 'Compare commonly confused English word pairs — Rock vs Stone, House vs Home, Affect vs Effect, and more.')
   const { data, isLoading } = useQuery({
     queryKey: ['usage-differences'],
     queryFn: () => getUsageDifferences()

@@ -1,3 +1,4 @@
+import useDocumentMeta from '../hooks/useDocumentMeta'
 import { useQuery } from '@tanstack/react-query'
 import { useParams, Link } from 'react-router-dom'
 import { getUsageDifference } from '../api/drupal'
@@ -18,6 +19,11 @@ export default function UsageDifferenceDetail() {
   )
 
   const { attributes } = entry
+
+  useDocumentMeta(
+    attributes.title,
+    attributes.field_quick_difference || `Understand the difference between these commonly confused English terms: ${attributes.title}.`
+  )
   return (
     <article className="entry-detail">
       <nav className="breadcrumb">

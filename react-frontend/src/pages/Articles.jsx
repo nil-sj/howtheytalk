@@ -1,3 +1,4 @@
+import useDocumentMeta from '../hooks/useDocumentMeta'
 import { useQuery } from '@tanstack/react-query'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
@@ -13,6 +14,7 @@ async function getArticles() {
 }
 
 export default function Articles() {
+  useDocumentMeta('Articles', 'Long-form articles about American English, workplace language, idioms, and cultural expressions.')
   const { data, isLoading } = useQuery({ queryKey: ['articles'], queryFn: getArticles })
   const articles = data?.data || []
 

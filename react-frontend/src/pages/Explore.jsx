@@ -1,3 +1,4 @@
+import useDocumentMeta from '../hooks/useDocumentMeta'
 import { Link } from 'react-router-dom'
 
 const features = [
@@ -19,6 +20,7 @@ const colorMap = {
 }
 
 export default function Explore() {
+  useDocumentMeta('Explore', 'Articles, usage differences, flashcards, quizzes, and Word of the Day — explore TalkNotes beyond the dictionary.')
   return (
     <div className="explore-page">
       <div className="page-header">

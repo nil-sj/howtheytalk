@@ -1,3 +1,4 @@
+import useDocumentMeta from '../hooks/useDocumentMeta'
 import { useQuery } from '@tanstack/react-query'
 import { useParams, Link } from 'react-router-dom'
 import axios from 'axios'
@@ -29,6 +30,11 @@ export default function ArticleDetail() {
   )
 
   const { attributes } = article
+
+  useDocumentMeta(
+    attributes.title,
+    attributes.field_summary || `Read this TalkNotes article: ${attributes.title}.`
+  )
   const body = Array.isArray(attributes.field_body)
     ? attributes.field_body[0]?.processed
     : attributes.field_body?.processed

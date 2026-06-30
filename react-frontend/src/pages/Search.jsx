@@ -1,3 +1,4 @@
+import useDocumentMeta from '../hooks/useDocumentMeta'
 import { useSearchParams, Link } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
@@ -29,6 +30,7 @@ async function searchAll(term) {
 }
 
 export default function Search() {
+  useDocumentMeta('Search', 'Search American English words, phrases, idioms, usage differences, and articles on TalkNotes.')
   const [searchParams, setSearchParams] = useSearchParams()
   const query = searchParams.get('q') || ''
 
