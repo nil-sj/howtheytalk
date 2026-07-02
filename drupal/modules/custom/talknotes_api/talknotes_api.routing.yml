@@ -105,3 +105,12 @@ talknotes_api.public_stats:
   requirements:
     _access: 'TRUE'
   methods: [GET]
+
+talknotes_api.save_pageviews:
+  path: '/api/save-pageviews'
+  defaults:
+    _controller: '\Drupal\talknotes_api\Controller\StatsController::savePageviews'
+    _title: 'Save Pageviews'
+  requirements:
+    _access: 'TRUE'
+  methods: [POST, OPTIONS]

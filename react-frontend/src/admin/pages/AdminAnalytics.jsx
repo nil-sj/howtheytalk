@@ -73,6 +73,14 @@ export default function AdminAnalytics() {
         umamiGet(`${base}/metrics${q10}&type=browser`),
       ])
       setStats(statsData)
+      // Silently store total pageviews in Drupal for public footer display
+      if (statsData?.pageviews?.value) {
+        fetch(`${DRUPAL_BASE}/api/save-pageviews`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'X-Admin-Secret': 'talknotes-admin-2026' },
+          body: JSON.stringify({ pageviews: statsData.pageviews.value }),
+        }).catch(() => {}) // silent — don't break analytics if this fails
+      }
       setPages(pagesData || [])
       setReferrers(refData || [])
       setDevices(deviceData || [])

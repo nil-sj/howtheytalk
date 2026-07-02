@@ -79,12 +79,28 @@ class StatsController extends ControllerBase {
     $entries = $db->query("SELECT COUNT(*) FROM {node_field_data} WHERE type = 'language_entry' AND status = 1")->fetchField();
     $usage = $db->query("SELECT COUNT(*) FROM {node_field_data} WHERE type = 'usage_difference' AND status = 1")->fetchField();
     $articles = $db->query("SELECT COUNT(*) FROM {node_field_data} WHERE type = 'article' AND status = 1")->fetchField();
+    $pageviews = \Drupal::keyValue('talknotes_stats')->get('pageviews', 0);
     $response = new JsonResponse([
       'entries' => (int) $entries,
       'usageDifferences' => (int) $usage,
       'articles' => (int) $articles,
+      'pageviews' => (int) $pageviews,
     ]);
     $response->headers->set('Access-Control-Allow-Origin', '*');
     return $response;
+  }
+
+  public function savePageviews(Request $request) {
+    $headers = $this->corsHeaders();
+    if ($request->getMethod() === 'OPTIONS') {
+      return new JsonResponse([], 200, $headers);
+    }
+    if ($request->headers->get('X-Admin-Secret') !== 'talknotes-admin-2026') {
+      return new JsonResponse(['error' => 'Unauthorized'], 401, $headers);
+    }
+    $body = json_decode($request->getContent(), TRUE);
+    $pageviews = isset($body['pageviews']) ? (int) $body['pageviews'] : 0;
+    \Drupal::keyValue('talknotes_stats')->set('pageviews', $pageviews);
+    return new JsonResponse(['saved' => $pageviews], 200, $headers);
   }
 }

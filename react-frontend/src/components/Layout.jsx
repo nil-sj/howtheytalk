@@ -177,6 +177,12 @@ export default function Layout() {
               <span>{footerStats.usageDifferences} usage differences</span>
               <span className="footer-stats-sep">·</span>
               <span>{footerStats.articles} articles</span>
+              {footerStats.pageviews > 0 && (
+                <>
+                  <span className="footer-stats-sep">·</span>
+                  <span>{footerStats.pageviews.toLocaleString()} page views</span>
+                </>
+              )}
             </div>
           )}
           <div className="footer-bottom">
