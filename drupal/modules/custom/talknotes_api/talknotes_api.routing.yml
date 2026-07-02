@@ -96,3 +96,12 @@ talknotes_api.list_usage_diffs:
   requirements:
     _access: 'TRUE'
   methods: [GET, OPTIONS]
+
+talknotes_api.public_stats:
+  path: '/api/public-stats'
+  defaults:
+    _controller: '\Drupal\talknotes_api\Controller\StatsController::publicStats'
+    _title: 'Public Stats'
+  requirements:
+    _access: 'TRUE'
+  methods: [GET]

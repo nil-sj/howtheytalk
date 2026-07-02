@@ -70,4 +70,21 @@ class StatsController extends ControllerBase {
 
     return new JsonResponse(['drafts' => $result], 200, $this->corsHeaders());
   }
+
+  /**
+   * Public stats — no auth required.
+   */
+  public function publicStats() {
+    $db = \Drupal::database();
+    $entries = $db->query("SELECT COUNT(*) FROM {node_field_data} WHERE type = 'language_entry' AND status = 1")->fetchField();
+    $usage = $db->query("SELECT COUNT(*) FROM {node_field_data} WHERE type = 'usage_difference' AND status = 1")->fetchField();
+    $articles = $db->query("SELECT COUNT(*) FROM {node_field_data} WHERE type = 'article' AND status = 1")->fetchField();
+    $response = new JsonResponse([
+      'entries' => (int) $entries,
+      'usageDifferences' => (int) $usage,
+      'articles' => (int) $articles,
+    ]);
+    $response->headers->set('Access-Control-Allow-Origin', '*');
+    return $response;
+  }
 }

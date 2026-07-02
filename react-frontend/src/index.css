@@ -844,3 +844,7 @@ a:hover { color: var(--amber); }
 .share-twitter { background: #000; color: #fff; }
 .share-facebook { background: #1877F2; color: #fff; }
 @media (max-width: 600px) { .share-buttons { gap: 0.4rem; } .share-btn { padding: 0.35rem 0.7rem; font-size: 0.75rem; } }
+
+/* Footer stats bar */
+.footer-stats-bar { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 0.4rem; padding: 0.75rem 0; border-top: 1px solid rgba(255,255,255,0.08); margin-bottom: 0.75rem; font-size: 0.8rem; color: rgba(255,255,255,0.45); }
+.footer-stats-sep { opacity: 0.4; }

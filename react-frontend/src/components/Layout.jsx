@@ -1,5 +1,6 @@
 import { Outlet, Link, NavLink, useNavigate } from 'react-router-dom'
 import { useState, useRef, useEffect } from 'react'
+import { useQuery } from '@tanstack/react-query'
 
 export default function Layout() {
   const [search, setSearch] = useState('')
@@ -8,6 +9,16 @@ export default function Layout() {
   const [mobileExploreOpen, setMobileExploreOpen] = useState(false)
   const navigate = useNavigate()
   const closeTimer = useRef(null)
+
+  const { data: footerStats } = useQuery({
+    queryKey: ['footer-stats'],
+    staleTime: 30 * 60 * 1000,
+    queryFn: async () => {
+      const DRUPAL = import.meta.env.VITE_DRUPAL_URL || 'http://192.168.1.157:9022'
+      const res = await fetch(`${DRUPAL}/api/public-stats`)
+      return res.json()
+    }
+  })
 
   function handleSearch(e) {
     e.preventDefault()
@@ -159,6 +170,15 @@ export default function Layout() {
               </ul>
             </div>
           </div>
+          {footerStats && (
+            <div className="footer-stats-bar">
+              <span>{footerStats.entries} language entries</span>
+              <span className="footer-stats-sep">·</span>
+              <span>{footerStats.usageDifferences} usage differences</span>
+              <span className="footer-stats-sep">·</span>
+              <span>{footerStats.articles} articles</span>
+            </div>
+          )}
           <div className="footer-bottom">
             <p>© {new Date().getFullYear()} TalkNotes — A personal English language diary</p>
           </div>
