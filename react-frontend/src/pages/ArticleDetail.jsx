@@ -21,6 +21,11 @@ export default function ArticleDetail() {
     queryFn: () => getArticle(slug)
   })
 
+  useDocumentMeta(
+    article?.attributes?.title || null,
+    article?.attributes?.field_summary || null
+  )
+
   if (isLoading) return <div className="loading">Loading...</div>
   if (!article) return (
     <div className="not-found">
@@ -30,11 +35,6 @@ export default function ArticleDetail() {
   )
 
   const { attributes } = article
-
-  useDocumentMeta(
-    attributes.title,
-    attributes.field_summary || `Read this TalkNotes article: ${attributes.title}.`
-  )
   const body = Array.isArray(attributes.field_body)
     ? attributes.field_body[0]?.processed
     : attributes.field_body?.processed

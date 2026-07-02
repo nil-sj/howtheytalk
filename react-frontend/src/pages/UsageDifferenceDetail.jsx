@@ -10,6 +10,11 @@ export default function UsageDifferenceDetail() {
     queryFn: () => getUsageDifference(slug)
   })
 
+  useDocumentMeta(
+    entry?.attributes?.title || null,
+    entry?.attributes?.field_quick_difference || null
+  )
+
   if (isLoading) return <div className="loading">Loading...</div>
   if (!entry) return (
     <div className="not-found">
@@ -19,11 +24,6 @@ export default function UsageDifferenceDetail() {
   )
 
   const { attributes } = entry
-
-  useDocumentMeta(
-    attributes.title,
-    attributes.field_quick_difference || `Understand the difference between these commonly confused English terms: ${attributes.title}.`
-  )
   return (
     <article className="entry-detail">
       <nav className="breadcrumb">

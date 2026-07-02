@@ -12,6 +12,12 @@ export default function EntryDetail() {
     queryFn: () => getEntry(slug)
   })
 
+  // Must be before any conditional returns to satisfy React's rules of hooks
+  useDocumentMeta(
+    entry?.attributes?.title || null,
+    entry?.attributes?.field_short_meaning || null
+  )
+
   if (isLoading) return <div className="loading">Loading...</div>
   if (!entry) return (
     <div className="not-found">
@@ -22,10 +28,6 @@ export default function EntryDetail() {
 
   const { attributes, relationships } = entry
 
-  useDocumentMeta(
-    attributes.title,
-    attributes.field_short_meaning || `Learn the meaning, usage, and origin of "${attributes.title}" in American English.`
-  )
   const included = entry._included || []
 
   const categoryRel = relationships?.field_main_category?.data

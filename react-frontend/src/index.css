@@ -418,7 +418,7 @@ a:hover { color: var(--amber); }
 .hm-game-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; }
 .hm-wrong-count { font-size: 0.825rem; color: #e74c3c; font-weight: 600; }
 .hm-layout { display: grid; grid-template-columns: 200px 1fr; gap: 2rem; align-items: start; }
-.hm-scaffold-wrap { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1rem; }
+.hm-scaffold-wrap { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1rem; display: flex; justify-content: center; }
 .hm-scaffold { font-family: monospace; font-size: 1rem; line-height: 1.4; color: var(--ink); margin: 0; white-space: pre; }
 .hm-hint { background: var(--amber-bg); border-left: 3px solid var(--amber); border-radius: 0 var(--radius) var(--radius) 0; padding: 0.75rem 1rem; margin-bottom: 1.5rem; font-size: 0.875rem; color: var(--ink); }
 .hm-hint-label { font-weight: 700; color: var(--amber); margin-right: 0.4rem; }
@@ -471,7 +471,7 @@ a:hover { color: var(--amber); }
   .fc-card-word { font-size: 1.5rem; }
   .fc-btn { padding: 0.65rem 1.25rem; }
   .hm-layout { grid-template-columns: 1fr; }
-  .hm-scaffold-wrap { display: none; }
+  .hm-scaffold-wrap { order: 10; margin-top: 1rem; }
   .quiz-question { font-size: 1.2rem; }
   .form-row { grid-template-columns: 1fr; }
   .breadcrumb { font-size: 0.75rem; }
@@ -809,3 +809,18 @@ a:hover { color: var(--amber); }
     margin-bottom: 1rem;
   }
 }
+
+/* Category metrics */
+.admin-catmetrics-chart { display: flex; flex-direction: column; gap: 0.6rem; }
+.admin-catmetrics-row { display: flex; align-items: center; gap: 1rem; }
+.admin-catmetrics-label { font-size: 0.8rem; color: var(--ink); min-width: 180px; max-width: 180px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; flex-shrink: 0; }
+.admin-catmetrics-bar-wrap { flex: 1; display: flex; align-items: center; gap: 0.5rem; min-width: 0; }
+.admin-catmetrics-bar { height: 22px; border-radius: 3px; min-width: 4px; transition: width 0.4s ease; flex-shrink: 0; }
+.admin-catmetrics-count { font-size: 0.8rem; font-weight: 600; color: var(--ink-soft); flex-shrink: 0; }
+@media (max-width: 600px) { .admin-catmetrics-label { min-width: 110px; max-width: 110px; } }
+
+/* Category metrics padding fix */
+.admin-catmetrics-chart { padding-right: 0.5rem; }
+.admin-catmetrics-bar-wrap { padding-right: 0.25rem; }
+.admin-catmetrics-count { min-width: 2rem; text-align: left; }
+.admin-catmetrics-divider { height: 1px; background: var(--border); margin: 0.5rem 0; }

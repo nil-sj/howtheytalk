@@ -50,11 +50,13 @@ export async function getEntry(slug) {
   }
 
   // If not found by title search, try fetching all pages
+  // Must use sort=changed,drupal_internal__nid to avoid pagination skipping bug
   let offset = 0
   while (true) {
     const fallback = await api.get('/jsonapi/node/language_entry', {
       params: {
         'filter[status]': 1,
+        'sort': 'changed,drupal_internal__nid',
         'page[limit]': 50,
         'page[offset]': offset,
         'include': 'field_main_category,field_tags',

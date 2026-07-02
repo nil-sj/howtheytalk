@@ -20,6 +20,7 @@ export default function AdminDashboard() {
     { icon: '🔄', title: 'Usage differences', desc: 'Manage word comparison entries', to: '/admin/usage-diffs' },
     { icon: '📬', title: 'Contact submissions', desc: 'View word suggestions and messages', to: '/admin/submissions' },
     { icon: '⚙️', title: 'AI settings', desc: 'Configure API provider and keys', to: '/admin/settings' },
+    { icon: '📈', title: 'View analytics', desc: 'Pageviews, top pages, visitors', to: '/admin/analytics' },
     { icon: '🗂️', title: 'Full content management', desc: 'Edit, revise, manage in Drupal', href: `${DRUPAL}/admin/content` },
   ]
 

@@ -33,6 +33,7 @@ import AdminSubmissions from './admin/pages/AdminSubmissions'
 import AdminSettings from './admin/pages/AdminSettings'
 import AdminSuggest from './admin/pages/AdminSuggest'
 import AdminAnalytics from './admin/pages/AdminAnalytics'
+import AdminCategoryMetrics from './admin/pages/AdminCategoryMetrics'
 import './index.css'
 
 const queryClient = new QueryClient({
@@ -78,6 +79,7 @@ export default function App() {
             <Route path="settings" element={<AdminSettings />} />
             <Route path="suggest" element={<AdminSuggest />} />
             <Route path="analytics" element={<AdminAnalytics />} />
+            <Route path="category-metrics" element={<AdminCategoryMetrics />} />
           </Route>
         </Routes>
       </BrowserRouter>
