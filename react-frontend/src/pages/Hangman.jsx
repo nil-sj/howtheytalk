@@ -66,7 +66,7 @@ async function getRandomEntry(categoryId) {
   while (true) {
     const res = await axios.get(`${DRUPAL_BASE}/jsonapi/node/language_entry`, {
       headers: { 'Accept': 'application/vnd.api+json' },
-      params: { 'filter[status]': 1, 'filter[field_main_category.id]': categoryId, 'page[limit]': 50, 'page[offset]': offset, 'fields[node--language_entry]': 'title,field_short_meaning,path' }
+      params: { 'filter[status]': 1, 'sort': 'changed,drupal_internal__nid', 'filter[field_main_category.id]': categoryId, 'page[limit]': 50, 'page[offset]': offset, 'fields[node--language_entry]': 'title,field_short_meaning,path' }
     })
     const entries = res.data.data || []
     all = all.concat(entries.filter(e => { const t = e.attributes.title; return t.length <= 20 && /^[a-zA-Z\s'-]+$/.test(t) }))

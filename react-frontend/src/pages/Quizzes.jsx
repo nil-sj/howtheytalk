@@ -13,7 +13,7 @@ async function getEntriesForQuiz(categoryId) {
   while (true) {
     const res = await axios.get(`${DRUPAL_BASE}/jsonapi/node/language_entry`, {
       headers: { 'Accept': 'application/vnd.api+json' },
-      params: { 'filter[status]': 1, 'filter[field_main_category.id]': categoryId, 'page[limit]': 50, 'page[offset]': offset, 'fields[node--language_entry]': 'title,field_short_meaning' }
+      params: { 'filter[status]': 1, 'sort': 'changed,drupal_internal__nid', 'filter[field_main_category.id]': categoryId, 'page[limit]': 50, 'page[offset]': offset, 'fields[node--language_entry]': 'title,field_short_meaning' }
     })
     const entries = res.data.data || []
     all = all.concat(entries)

@@ -102,7 +102,7 @@ export async function getUsageDifference(slug) {
   let offset = 0
   while (true) {
     const res = await api.get('/jsonapi/node/usage_difference', {
-      params: { 'filter[status]': 1, 'page[limit]': 50, 'page[offset]': offset }
+      params: { 'filter[status]': 1, 'sort': 'changed,drupal_internal__nid', 'page[limit]': 50, 'page[offset]': offset }
     })
     const entries = res.data.data || []
     const match = entries.find(e => e.attributes.path?.alias === `/usage-difference/${slug}`)

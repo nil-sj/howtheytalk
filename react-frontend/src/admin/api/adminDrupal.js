@@ -24,7 +24,7 @@ async function countNodes(type, extraFilter = '') {
   let total = 0
   let offset = 0
   while (true) {
-    const r = await fetch(`${DRUPAL_BASE}/jsonapi/node/${type}?page[limit]=50&page[offset]=${offset}&fields[node--${type}]=title&filter[status]=1`, {
+    const r = await fetch(`${DRUPAL_BASE}/jsonapi/node/${type}?sort=changed,drupal_internal__nid&page[limit]=50&page[offset]=${offset}&fields[node--${type}]=title&filter[status]=1`, {
       headers: { 'Accept': 'application/vnd.api+json' }
     })
     const d = await r.json()

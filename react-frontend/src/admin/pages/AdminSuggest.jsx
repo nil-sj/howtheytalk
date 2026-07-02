@@ -28,7 +28,7 @@ async function getTitlesForCategory(categoryName, allCategories) {
   }
 
   while (true) {
-    const res = await fetch(`${url}&page[offset]=${offset}`, {
+    const res = await fetch(`${url}&sort=changed,drupal_internal__nid&page[offset]=${offset}`, {
       headers: { 'Accept': 'application/vnd.api+json' }
     })
     const data = await res.json()

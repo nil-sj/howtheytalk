@@ -15,6 +15,7 @@ async function getEntriesForCategory(categoryId) {
       headers: { 'Accept': 'application/vnd.api+json' },
       params: {
         'filter[status]': 1,
+        'sort': 'changed,drupal_internal__nid',
         'filter[field_main_category.id]': categoryId,
         'page[limit]': 50,
         'page[offset]': offset,

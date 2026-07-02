@@ -25,7 +25,7 @@ async function countEntriesForCategory(categoryId) {
   let offset = 0
   while (true) {
     const r = await fetch(
-      `${DRUPAL_BASE}/jsonapi/node/language_entry?filter[status]=1&filter[field_main_category.id]=${categoryId}&page[limit]=50&page[offset]=${offset}&fields[node--language_entry]=title`,
+      `${DRUPAL_BASE}/jsonapi/node/language_entry?filter[status]=1&sort=changed,drupal_internal__nid&filter[field_main_category.id]=${categoryId}&page[limit]=50&page[offset]=${offset}&fields[node--language_entry]=title`,
       { headers: { 'Accept': 'application/vnd.api+json' } }
     )
     const d = await r.json()
@@ -41,7 +41,7 @@ async function fetchUsageDiffCount() {
   let total = 0, offset = 0
   while (true) {
     const res = await fetch(
-      `${DRUPAL_BASE}/jsonapi/node/usage_difference?filter[status]=1&page[limit]=50&page[offset]=${offset}&fields[node--usage_difference]=title`,
+      `${DRUPAL_BASE}/jsonapi/node/usage_difference?filter[status]=1&sort=changed,drupal_internal__nid&page[limit]=50&page[offset]=${offset}&fields[node--usage_difference]=title`,
       { headers: { 'Accept': 'application/vnd.api+json' } }
     )
     const data = await res.json()

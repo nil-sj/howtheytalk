@@ -27,6 +27,7 @@ export async function getWordOfDay() {
       headers: { 'Accept': 'application/vnd.api+json' },
       params: {
         'filter[status]': 1,
+        'sort': 'changed,drupal_internal__nid',
         'page[limit]': limit,
         'page[offset]': offset,
         'fields[node--language_entry]': 'title,field_short_meaning,path',
