@@ -116,3 +116,24 @@ export async function getUsageDifference(slug) {
 export function getIncluded(included = [], type, id) {
   return included?.find(item => item.type === type && item.id === id)
 }
+
+export async function getAllEntries() {
+  let all = []
+  let offset = 0
+  while (true) {
+    const res = await api.get('/jsonapi/node/language_entry', {
+      params: {
+        'filter[status]': 1,
+        'sort': 'changed,drupal_internal__nid',
+        'page[limit]': 50,
+        'page[offset]': offset,
+        'fields[node--language_entry]': 'title,path,field_short_meaning',
+      }
+    })
+    const items = res.data.data || []
+    all = all.concat(items)
+    if (items.length < 50) break
+    offset += 50
+  }
+  return all
+}

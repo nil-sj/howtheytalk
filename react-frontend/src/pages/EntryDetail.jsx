@@ -3,6 +3,7 @@ import { useQuery } from '@tanstack/react-query'
 import { useParams, Link } from 'react-router-dom'
 import { getEntry, getIncluded } from '../api/drupal'
 import RelatedEntries from '../components/RelatedEntries'
+import ShareButtons from '../components/ShareButtons'
 
 export default function EntryDetail() {
   const { slug } = useParams()
@@ -130,6 +131,11 @@ export default function EntryDetail() {
         </p>
         <Link to="/entries" className="back-link">← Back to entries</Link>
       </footer>
+
+      <ShareButtons
+        title={attributes.title}
+        url={`https://talknotes.codenil.online${attributes.path?.alias || ''}`}
+      />
 
       <RelatedEntries
         categoryId={categoryId}

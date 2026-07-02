@@ -824,3 +824,23 @@ a:hover { color: var(--amber); }
 .admin-catmetrics-bar-wrap { padding-right: 0.25rem; }
 .admin-catmetrics-count { min-width: 2rem; text-align: left; }
 .admin-catmetrics-divider { height: 1px; background: var(--border); margin: 0.5rem 0; }
+
+/* Did You Know widget */
+.dyk-card { background: linear-gradient(135deg, var(--surface) 0%, color-mix(in srgb, var(--accent) 8%, var(--surface)) 100%); border: 1px solid color-mix(in srgb, var(--accent) 25%, var(--border)); border-left: 4px solid var(--accent); border-radius: var(--radius-lg); padding: 1.25rem 1.5rem; }
+.dyk-header { margin-bottom: 0.5rem; }
+.dyk-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); }
+.dyk-title { font-size: 1.25rem; font-weight: 700; color: var(--ink); margin: 0.25rem 0 0.5rem; }
+.dyk-meaning { font-size: 0.95rem; color: var(--ink-soft); line-height: 1.6; margin-bottom: 0.75rem; }
+.dyk-link { font-size: 0.85rem; font-weight: 600; color: var(--accent); text-decoration: none; }
+.dyk-link:hover { text-decoration: underline; }
+
+/* Share buttons */
+.share-buttons { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; margin: 2rem 0 1rem; padding: 1rem 1.25rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); }
+.share-label { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-faint); margin-right: 0.25rem; }
+.share-btn { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.4rem 0.85rem; border-radius: 2rem; font-size: 0.8rem; font-weight: 600; text-decoration: none; border: none; cursor: pointer; transition: opacity 0.15s, transform 0.1s; white-space: nowrap; }
+.share-btn:hover { opacity: 0.85; transform: translateY(-1px); }
+.share-copy { background: var(--surface-raised, #f0f0f0); color: var(--ink); border: 1px solid var(--border); }
+.share-whatsapp { background: #25D366; color: #fff; }
+.share-twitter { background: #000; color: #fff; }
+.share-facebook { background: #1877F2; color: #fff; }
+@media (max-width: 600px) { .share-buttons { gap: 0.4rem; } .share-btn { padding: 0.35rem 0.7rem; font-size: 0.75rem; } }

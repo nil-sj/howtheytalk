@@ -6,6 +6,7 @@ import { getEntries, getCategories } from '../api/drupal'
 import { getCategoryCounts } from '../api/counts'
 import { getWordOfDay } from '../api/wordofday'
 import EntryCard from '../components/EntryCard'
+import DidYouKnow from '../components/DidYouKnow'
 
 export default function Home() {
   useDocumentMeta(null, 'Discover American English idioms, phrases, business lingo, and usage differences — a personal language diary for practical, everyday English.')
@@ -112,6 +113,8 @@ export default function Home() {
           </div>
         </section>
       )}
+
+      <DidYouKnow />
 
       {entries.length > 0 && (
         <section className="home-section">
