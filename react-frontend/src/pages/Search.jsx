@@ -30,7 +30,7 @@ async function searchAll(term) {
 }
 
 export default function Search() {
-  useDocumentMeta('Search', 'Search American English words, phrases, idioms, usage differences, and articles on TalkNotes.')
+  useDocumentMeta('Search', 'Search American English words, phrases, idioms, usage differences, and articles on HowTheyTalk.')
   const [searchParams, setSearchParams] = useSearchParams()
   const query = searchParams.get('q') || ''
 

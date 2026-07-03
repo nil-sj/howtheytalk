@@ -53,7 +53,7 @@ export default function Layout() {
       <header className="site-header">
         <div className="container header-inner">
           <div className="site-brand">
-            <Link to="/" className="site-name" onClick={closeAll}>Talk<span>Notes</span></Link>
+            <Link to="/" className="site-name" onClick={closeAll}>How<span>TheyTalk</span></Link>
             <p className="site-slogan">A personal English language diary</p>
           </div>
 
@@ -132,7 +132,7 @@ export default function Layout() {
         <div className="container footer-inner">
           <div className="footer-grid">
             <div className="footer-col footer-col--brand">
-              <div className="footer-brand">Talk<span>Notes</span></div>
+              <div className="footer-brand">How<span>TheyTalk</span></div>
               <p className="footer-desc">A personal repository of English words, phrases, idioms, and everyday expressions — especially from the perspective of learning practical English in the United States.</p>
               <div className="footer-legal-links">
                 <Link to="/privacy">Privacy policy</Link>
@@ -186,7 +186,7 @@ export default function Layout() {
             </div>
           )}
           <div className="footer-bottom">
-            <p>© {new Date().getFullYear()} TalkNotes — A personal English language diary</p>
+            <p>© {new Date().getFullYear()} HowTheyTalk — A personal English language diary</p>
           </div>
         </div>
       </footer>

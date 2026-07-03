@@ -134,7 +134,7 @@ export default function EntryDetail() {
 
       <ShareButtons
         title={attributes.title}
-        url={`https://talknotes.codenil.online${attributes.path?.alias || ''}`}
+        url={`https://howtheytalk.us${attributes.path?.alias || ''}`}
       />
 
       <RelatedEntries

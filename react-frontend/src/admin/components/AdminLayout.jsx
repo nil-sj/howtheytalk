@@ -12,7 +12,7 @@ export default function AdminLayout() {
   return (
     <div className="admin-wrapper">
       <aside className="admin-sidebar">
-        <Link to="/admin" className="admin-sidebar-brand">Talk<span>Notes</span><small>Admin</small></Link>
+        <Link to="/admin" className="admin-sidebar-brand">How<span>TheyTalk</span><small>Admin</small></Link>
         <nav className="admin-sidebar-nav">
           <NavLink to="/admin" end>📊 Dashboard</NavLink>
           <NavLink to="/admin/entries">📖 Entries</NavLink>

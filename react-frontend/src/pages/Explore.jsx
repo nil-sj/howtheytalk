@@ -7,7 +7,7 @@ const features = [
   { emoji: '📅', title: 'Word of the Day', description: 'A new English word or phrase every day — with its meaning, usage examples, notes, and cultural context. Build your vocabulary one day at a time.', cta: "See today's word", link: '/word-of-the-day', available: true, color: 'green' },
   { emoji: '🃏', title: 'Flashcards', description: 'Practice English words and phrases with interactive flashcards. Pick a category, flip through cards, and track what you know.', cta: 'Practice flashcards', link: '/flashcards', available: true, color: 'purple' },
   { emoji: '🧩', title: 'Quizzes', description: 'Test your knowledge with short, fun quizzes. Multiple-choice questions on idioms, vocabulary, workplace phrases, and cultural expressions.', cta: 'Take a quiz', link: '/quizzes', available: true, color: 'amber' },
-  { emoji: '🎯', title: 'Hangman', description: 'The classic word-guessing game with a twist — every word comes from the TalkNotes collection. Guess letter by letter and learn the meaning when the round ends.', cta: 'Play hangman', link: '/hangman', available: true, color: 'coral' },
+  { emoji: '🎯', title: 'Hangman', description: 'The classic word-guessing game with a twist — every word comes from the HowTheyTalk collection. Guess letter by letter and learn the meaning when the round ends.', cta: 'Play hangman', link: '/hangman', available: true, color: 'coral' },
 ]
 
 const colorMap = {
@@ -20,7 +20,7 @@ const colorMap = {
 }
 
 export default function Explore() {
-  useDocumentMeta('Explore', 'Articles, usage differences, flashcards, quizzes, and Word of the Day — explore TalkNotes beyond the dictionary.')
+  useDocumentMeta('Explore', 'Articles, usage differences, flashcards, quizzes, and Word of the Day — explore HowTheyTalk beyond the dictionary.')
   return (
     <div className="explore-page">
       <div className="page-header">

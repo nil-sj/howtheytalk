@@ -10,13 +10,13 @@ export default function PrivacyPolicy() {
       <div className="about-body">
         <section className="about-section">
           <h2>What information we collect</h2>
-          <p>TalkNotes is a read-only public reference site. We do not require you to create an account or log in to use any part of the site.</p>
+          <p>HowTheyTalk is a read-only public reference site. We do not require you to create an account or log in to use any part of the site.</p>
           <p>The only information we collect is what you voluntarily provide through the <Link to="/contact">contact and suggestion form</Link>: your name, email address, and message. This information is used solely to respond to your message or consider your suggestion. It is never sold, shared, or used for marketing purposes.</p>
         </section>
 
         <section className="about-section">
           <h2>Cookies and tracking</h2>
-          <p>TalkNotes does not use advertising cookies or third-party tracking scripts. We do not run ads. We do not build profiles of visitors.</p>
+          <p>HowTheyTalk does not use advertising cookies or third-party tracking scripts. We do not run ads. We do not build profiles of visitors.</p>
           <p>The site may use basic session storage in your browser to remember your state during interactive features like Flashcards and Quizzes. This data stays in your browser and is never sent to our servers.</p>
         </section>
 
@@ -27,12 +27,12 @@ export default function PrivacyPolicy() {
 
         <section className="about-section">
           <h2>Third-party services</h2>
-          <p>TalkNotes is hosted on a private server. Content is served through Cloudflare, which may collect basic access logs as part of its infrastructure services. Please refer to <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">Cloudflare's privacy policy</a> for details.</p>
+          <p>HowTheyTalk is hosted on a private server. Content is served through Cloudflare, which may collect basic access logs as part of its infrastructure services. Please refer to <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">Cloudflare's privacy policy</a> for details.</p>
         </section>
 
         <section className="about-section">
           <h2>Children's privacy</h2>
-          <p>TalkNotes is a general-audience educational reference site. We do not knowingly collect personal information from children under 13. If you believe a child has submitted personal information through our contact form, please contact us and we will delete it promptly.</p>
+          <p>HowTheyTalk is a general-audience educational reference site. We do not knowingly collect personal information from children under 13. If you believe a child has submitted personal information through our contact form, please contact us and we will delete it promptly.</p>
         </section>
 
         <section className="about-section">

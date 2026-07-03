@@ -10,19 +10,19 @@ export default function TermsOfUse() {
       <div className="about-body">
         <section className="about-section">
           <h2>About this site</h2>
-          <p>TalkNotes is a personal, publicly accessible reference site for English words, phrases, idioms, and language observations. It is maintained by a private individual as a personal project and educational resource.</p>
+          <p>HowTheyTalk is a personal, publicly accessible reference site for English words, phrases, idioms, and language observations. It is maintained by a private individual as a personal project and educational resource.</p>
         </section>
 
         <section className="about-section">
           <h2>Use of content</h2>
-          <p>The content on TalkNotes — including word definitions, explanations, usage examples, notes, and articles — is written by the site administrator and is provided for personal educational use.</p>
-          <p>You are welcome to read, reference, and share individual entries for personal, educational, or non-commercial purposes, with credit to TalkNotes (talknotes.codenil.online).</p>
+          <p>The content on HowTheyTalk — including word definitions, explanations, usage examples, notes, and articles — is written by the site administrator and is provided for personal educational use.</p>
+          <p>You are welcome to read, reference, and share individual entries for personal, educational, or non-commercial purposes, with credit to HowTheyTalk (talknotes.codenil.online).</p>
           <p>You may not reproduce large portions of the site's content, scrape the site systematically, or use the content for commercial purposes without permission.</p>
         </section>
 
         <section className="about-section">
           <h2>Accuracy of information</h2>
-          <p>TalkNotes is a personal diary and reference collection, not an authoritative academic or professional dictionary. While we strive for accuracy, entries represent personal observations and research. Language is living and evolving — usages change, regional differences exist, and not every native speaker will agree on every point.</p>
+          <p>HowTheyTalk is a personal diary and reference collection, not an authoritative academic or professional dictionary. While we strive for accuracy, entries represent personal observations and research. Language is living and evolving — usages change, regional differences exist, and not every native speaker will agree on every point.</p>
           <p>If you believe an entry contains an error, please use the <Link to="/contact">contact form</Link> to suggest a correction. We welcome and appreciate feedback.</p>
         </section>
 

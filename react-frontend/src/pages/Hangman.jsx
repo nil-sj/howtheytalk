@@ -158,7 +158,7 @@ function HangmanGame({ entry, categoryName, onNext, onExit }) {
 }
 
 export default function Hangman() {
-  useDocumentMeta('Hangman', 'Play Hangman with real American English words and phrases from the TalkNotes collection.')
+  useDocumentMeta('Hangman', 'Play Hangman with real American English words and phrases from the HowTheyTalk collection.')
   const [searchParams] = useSearchParams()
   const preselectedCatId = searchParams.get('category')
 
@@ -198,7 +198,7 @@ export default function Hangman() {
     <div className="hangman-page">
       <div className="page-header">
         <h1 className="page-title">🎯 Hangman</h1>
-        <p className="page-subtitle">Guess the word letter by letter. Every word comes from the TalkNotes collection.</p>
+        <p className="page-subtitle">Guess the word letter by letter. Every word comes from the HowTheyTalk collection.</p>
       </div>
       <div className="hm-instructions">
         <div className="hm-instruction-item">⌨️ Type letters or click the keyboard</div>

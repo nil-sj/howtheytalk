@@ -5,7 +5,7 @@ import axios from 'axios'
 const DRUPAL_BASE = import.meta.env.VITE_DRUPAL_URL || 'http://192.168.1.157:9022'
 
 export default function Contact() {
-  useDocumentMeta('Contact', 'Suggest a word, report an issue, or get in touch with TalkNotes.')
+  useDocumentMeta('Contact', 'Suggest a word, report an issue, or get in touch with HowTheyTalk.')
   const [form, setForm] = useState({
     your_name: '', your_email: '', message_type: 'suggest',
     suggested_word: '', message: '', source_context: ''
@@ -46,7 +46,7 @@ export default function Contact() {
 
       {status === 'success' && (
         <div className="form-success">
-          Thank you! I read every suggestion and will consider adding it to TalkNotes.
+          Thank you! I read every suggestion and will consider adding it to HowTheyTalk.
         </div>
       )}
 

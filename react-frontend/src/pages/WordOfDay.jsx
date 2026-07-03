@@ -46,7 +46,7 @@ export default function WordOfDay() {
           </div>
 
           <div className="wotd-note">
-            <p>A new word or phrase is featured every day, drawn from the TalkNotes collection. Come back tomorrow for a new one.</p>
+            <p>A new word or phrase is featured every day, drawn from the HowTheyTalk collection. Come back tomorrow for a new one.</p>
             <p style={{marginTop: '0.75rem'}}>
               <Link to="/entries" className="btn-primary">Browse all entries</Link>
               {' '}

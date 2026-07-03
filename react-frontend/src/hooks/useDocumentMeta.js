@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-const SITE_NAME = 'TalkNotes'
+const SITE_NAME = 'HowTheyTalk'
 const DEFAULT_DESCRIPTION = 'A personal diary of American English words, idioms, phrases, and usage differences — written for non-native speakers learning practical, everyday English in the United States.'
 
 function setMetaTag(selector, attr, value) {

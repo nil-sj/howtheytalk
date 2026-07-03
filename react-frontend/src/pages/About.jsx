@@ -2,11 +2,11 @@ import useDocumentMeta from '../hooks/useDocumentMeta'
 import { Link } from 'react-router-dom'
 
 export default function About() {
-  useDocumentMeta('About', 'Learn about TalkNotes, a personal English language diary for non-native speakers learning practical American English.')
+  useDocumentMeta('About', 'Learn about HowTheyTalk, a personal English language diary for non-native speakers learning practical American English.')
   return (
     <div className="about-page">
       <div className="about-hero">
-        <h1 className="about-title">About TalkNotes</h1>
+        <h1 className="about-title">About HowTheyTalk</h1>
         <p className="about-lead">
           A personal diary of English words, phrases, idioms, and everyday expressions —
           collected from real life, work, reading, and conversations.
@@ -17,7 +17,7 @@ export default function About() {
         <section className="about-section">
           <h2>What is this?</h2>
           <p>
-            TalkNotes is a personal language diary. It is a place where I collect English words,
+            HowTheyTalk is a personal language diary. It is a place where I collect English words,
             phrases, and expressions that I encounter in everyday American life — things I heard
             in a meeting, read in an article, or noticed someone say that made me think
             "I should write that down."
@@ -56,7 +56,7 @@ export default function About() {
 
         <section className="about-section">
           <h2>Who is it for?</h2>
-          <p>TalkNotes is especially useful for:</p>
+          <p>HowTheyTalk is especially useful for:</p>
           <ul>
             <li>
               <strong>Immigrants and newcomers</strong> who are learning practical American
@@ -101,7 +101,7 @@ export default function About() {
         <section className="about-section">
           <h2>A living collection</h2>
           <p>
-            TalkNotes is not finished. It grows as I encounter new words and phrases,
+            HowTheyTalk is not finished. It grows as I encounter new words and phrases,
             revisit old ones, and notice things worth writing down. If you come across
             something that should be here — or if you spot an error, have a correction,
             or want to suggest a phrase — please use the

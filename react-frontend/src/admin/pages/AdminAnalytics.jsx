@@ -1,5 +1,6 @@
 import AdminBackButton from '../components/AdminBackButton'
 import { useState, useEffect } from 'react'
+const DRUPAL_BASE = import.meta.env.VITE_DRUPAL_URL || 'http://192.168.1.157:9022'
 
 const UMAMI_BASE = 'https://analytics.codenil.online'
 const WEBSITE_ID = 'b1a3e48a-27ac-41e1-abf8-7d1ee7d94339'
@@ -74,11 +75,14 @@ export default function AdminAnalytics() {
       ])
       setStats(statsData)
       // Silently store total pageviews in Drupal for public footer display
-      if (statsData?.pageviews?.value) {
+      const pvCount = typeof statsData?.pageviews === 'object'
+        ? (statsData.pageviews?.value ?? statsData.pageviews?.sum ?? 0)
+        : (statsData?.pageviews || 0)
+      if (pvCount > 0) {
         fetch(`${DRUPAL_BASE}/api/save-pageviews`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'X-Admin-Secret': 'talknotes-admin-2026' },
-          body: JSON.stringify({ pageviews: statsData.pageviews.value }),
+          body: JSON.stringify({ pageviews: pvCount }),
         }).catch(() => {}) // silent — don't break analytics if this fails
       }
       setPages(pagesData || [])

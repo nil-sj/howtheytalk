@@ -13,6 +13,8 @@ parameters:
       - 'http://localhost:5173'
       - 'http://192.168.1.157:9023'
       - 'https://talknotes.codenil.online'
+      - 'https://howtheytalk.us'
+      - 'https://www.howtheytalk.us'
       - 'https://talknotes-app.codenil.online'
     exposedHeaders: false
     maxAge: 1000

@@ -4,7 +4,7 @@ export default function ShareButtons({ title, url }) {
   const [copied, setCopied] = useState(false)
 
   const fullUrl = url || window.location.href
-  const text = `"${title}" — from TalkNotes, a personal American English diary`
+  const text = `"${title}" — from HowTheyTalk, a personal American English diary`
 
   function copyLink() {
     navigator.clipboard.writeText(fullUrl).then(() => {
