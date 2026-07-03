@@ -1,4 +1,4 @@
-# TalkNotes - Development
+# HowTheyTalk - Development
 
 services:
 
@@ -6,6 +6,13 @@ services:
     image: drupal:10-apache
     container_name: talknotes_drupal_dev
     restart: unless-stopped
+    command: >
+      bash -c "
+        if [ ! -f /opt/drupal/vendor/bin/drush ]; then
+          cd /opt/drupal && composer install --no-dev --optimize-autoloader;
+        fi &&
+        apache2-foreground
+      "
     ports:
       - "9022:80"
     environment:
