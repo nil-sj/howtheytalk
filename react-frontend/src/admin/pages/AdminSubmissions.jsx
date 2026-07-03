@@ -27,9 +27,9 @@ export default function AdminSubmissions() {
   }
 
   function replyMailto(data) {
-    const subject = encodeURIComponent(`Re: Your TalkNotes message`)
+    const subject = encodeURIComponent(`Re: Your HowTheyTalk message`)
     const body = encodeURIComponent(
-      `Hi ${data.your_name},\n\nThank you for reaching out to TalkNotes.\n\n` +
+      `Hi ${data.your_name},\n\nThank you for reaching out to HowTheyTalk.\n\n` +
       (data.suggested_word ? `Regarding your suggestion "${data.suggested_word}":\n\n` : '') +
       `---\nYour message:\n${data.message}\n`
     )

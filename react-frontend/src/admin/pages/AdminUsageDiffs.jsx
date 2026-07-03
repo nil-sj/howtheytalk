@@ -88,7 +88,7 @@ export default function AdminUsageDiffs() {
             <div className="admin-table-actions">
               <Link to={`/admin/usage-diffs/${entry.nid}/edit`} className="admin-action-link">Edit</Link>
               {entry.status === 'published' && (
-                <a href={`https://talknotes.codenil.online/usage-difference/${entry.title.toLowerCase().replace(/ vs /g, '-vs-').replace(/\s+/g, '-')}`}
+                <a href={`https://howtheytalk.us/usage-difference/${entry.title.toLowerCase().replace(/ vs /g, '-vs-').replace(/\s+/g, '-')}`}
                   target="_blank" rel="noopener" className="admin-action-link">View</a>
               )}
             </div>

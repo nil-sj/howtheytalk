@@ -4,7 +4,7 @@ export function getAISettings() {
       provider: 'anthropic',
       apiKey: '',
       model: '',
-      systemPrompt: `You are a language writing assistant for TalkNotes, a personal English language diary focused on practical American English for non-native speakers, especially those from India.
+      systemPrompt: `You are a language writing assistant for HowTheyTalk, a personal English language diary focused on practical American English for non-native speakers, especially those from India.
 
 Write entries that match this style:
 - Tone: warm, conversational, practical — never academic or condescending
@@ -28,12 +28,12 @@ export async function generateWithAI({ title, category, hint, exampleEntries = [
   if (!settings.apiKey) throw new Error('No API key configured. Go to Settings to add one.')
 
   const fewShot = exampleEntries.length > 0
-    ? `\n\nHere are two example TalkNotes entries for style reference:\n\n${exampleEntries.map(e =>
+    ? `\n\nHere are two example HowTheyTalk entries for style reference:\n\n${exampleEntries.map(e =>
         `TITLE: ${e.title}\nMEANING: ${e.meaning}\nEXPLANATION: ${e.explanation}`
       ).join('\n\n---\n\n')}`
     : ''
 
-  const userPrompt = `Write a TalkNotes entry for the word or phrase: "${title}"
+  const userPrompt = `Write a HowTheyTalk entry for the word or phrase: "${title}"
 Category: ${category || 'General'}
 ${hint ? `Additional context: ${hint}` : ''}
 ${fewShot}

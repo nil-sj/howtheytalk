@@ -144,7 +144,7 @@ export default function AdminEntries() {
               <div className="admin-table-actions">
                 <Link to={`/admin/entries/${nid}/edit`} className="admin-action-link">Edit</Link>
                 {slug && (
-                  <a href={`https://talknotes.codenil.online/entries/${slug}`} target="_blank" rel="noopener" className="admin-action-link">View</a>
+                  <a href={`https://howtheytalk.us/entries/${slug}`} target="_blank" rel="noopener" className="admin-action-link">View</a>
                 )}
               </div>
             </div>

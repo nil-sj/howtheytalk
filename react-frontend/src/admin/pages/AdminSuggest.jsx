@@ -51,13 +51,13 @@ async function getTitlesForCategory(categoryName, allCategories) {
 }
 
 async function suggestWithAI({ existingTitles, category, categoryDesc, count, settings }) {
-  const systemPrompt = settings.systemPrompt || 'You are a language content assistant for TalkNotes.'
+  const systemPrompt = settings.systemPrompt || 'You are a language content assistant for HowTheyTalk.'
 
   const scopeNote = existingTitles.length > 0
     ? `These ${existingTitles.length} entries already exist in this category — do NOT suggest any of these:\n${existingTitles.map(t => `- ${t}`).join('\n')}`
     : `No entries exist in this category yet.`
 
-  const userPrompt = `You are helping expand TalkNotes, a personal English language diary for non-native speakers learning practical American English.
+  const userPrompt = `You are helping expand HowTheyTalk, a personal English language diary for non-native speakers learning practical American English.
 
 Category: "${category}"
 Category description: ${categoryDesc}
@@ -69,7 +69,7 @@ Please suggest ${count} NEW words, phrases, or expressions for the "${category}"
 2. Fit this specific category well
 3. Would be genuinely useful for someone learning practical American English
 4. Range from common everyday usage to interesting/surprising ones
-5. Are specific enough to write a good TalkNotes entry about
+5. Are specific enough to write a good HowTheyTalk entry about
 
 Return ONLY a JSON array, no other text:
 [

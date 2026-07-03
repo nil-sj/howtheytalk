@@ -16,7 +16,7 @@ export default function TermsOfUse() {
         <section className="about-section">
           <h2>Use of content</h2>
           <p>The content on HowTheyTalk — including word definitions, explanations, usage examples, notes, and articles — is written by the site administrator and is provided for personal educational use.</p>
-          <p>You are welcome to read, reference, and share individual entries for personal, educational, or non-commercial purposes, with credit to HowTheyTalk (talknotes.codenil.online).</p>
+          <p>You are welcome to read, reference, and share individual entries for personal, educational, or non-commercial purposes, with credit to HowTheyTalk (howtheytalk.us).</p>
           <p>You may not reproduce large portions of the site's content, scrape the site systematically, or use the content for commercial purposes without permission.</p>
         </section>
 

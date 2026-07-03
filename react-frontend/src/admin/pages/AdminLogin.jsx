@@ -25,7 +25,7 @@ export default function AdminLogin() {
   return (
     <div className="admin-login-page">
       <div className="admin-login-card">
-        <div className="admin-login-brand">Talk<span>Notes</span></div>
+        <div className="admin-login-brand">How<span>TheyTalk</span></div>
         <p className="admin-login-sub">Admin panel</p>
         <form onSubmit={handleSubmit} className="admin-login-form">
           {error && <div className="admin-error">{error}</div>}
