@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
+import AdminBackButton from './components/AdminBackButton';
 import { adminGetComments, adminUpdateComment, adminDeleteComment } from '../api/comments';
 
 function timeAgo(timestamp) {
@@ -70,8 +71,11 @@ export default function AdminComments() {
   ];
 
   return (
-    <div className="admin-comments-page">
-      <h2 style={{ marginBottom: '0.5rem' }}>Comments</h2>
+    <div className="admin-page">
+      <AdminBackButton />
+      <div className="admin-page-header">
+        <h1>Comments</h1>
+      </div>
       <p style={{ color: '#888', fontSize: '0.87rem', marginBottom: '1.5rem' }}>
         Review and moderate reader comments. Approved comments appear publicly on articles.
       </p>

@@ -1097,6 +1097,20 @@ a:hover { color: var(--amber); }
   margin: 0 auto;
 }
 
+@media (max-width: 768px) {
+  .admin-comments-page { padding: 1rem; }
+  .comment-card { padding: 1rem; }
+  .comment-card-header { flex-direction: column; gap: 0.5rem; }
+  .comment-card-actions { gap: 0.4rem; }
+  .comment-action-btn { font-size: 0.75rem; padding: 0.3rem 0.65rem; }
+  .btn-delete { margin-left: 0; }
+  .admin-comments-filters { gap: 0.4rem; }
+  .admin-comments-filters button { font-size: 0.75rem; padding: 0.35rem 0.75rem; }
+  .comment-form-row { grid-template-columns: 1fr; }
+  .comment-section { margin-top: 2rem; padding-top: 1.5rem; }
+  .comment-form-wrapper { padding: 1.25rem; }
+}
+
 .admin-comments-filters {
   display: flex;
   gap: 0.5rem;
