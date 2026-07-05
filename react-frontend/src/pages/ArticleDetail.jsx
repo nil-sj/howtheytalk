@@ -2,13 +2,18 @@ import useDocumentMeta from '../hooks/useDocumentMeta'
 import { useQuery } from '@tanstack/react-query'
 import { useParams, Link } from 'react-router-dom'
 import axios from 'axios'
+import CommentSection from '../components/CommentSection'
 
 const DRUPAL_BASE = import.meta.env.VITE_DRUPAL_URL || 'http://192.168.1.157:9022'
 
 async function getArticle(slug) {
   const res = await axios.get(`${DRUPAL_BASE}/jsonapi/node/article`, {
     headers: { 'Accept': 'application/vnd.api+json' },
-    params: { 'filter[status]': 1, 'page[limit]': 50 }
+    params: {
+      'filter[status]': 1,
+      'page[limit]': 50,
+      'fields[node--article]': 'title,field_summary,field_body,path,created,drupal_internal__nid',
+    }
   })
   const entries = res.data.data || []
   return entries.find(e => e.attributes.path?.alias === `/articles/${slug}`) || null
@@ -35,6 +40,8 @@ export default function ArticleDetail() {
   )
 
   const { attributes } = article
+  const nid = attributes.drupal_internal__nid
+
   const body = Array.isArray(attributes.field_body)
     ? attributes.field_body[0]?.processed
     : attributes.field_body?.processed
@@ -69,6 +76,8 @@ export default function ArticleDetail() {
       <footer className="entry-footer">
         <Link to="/articles" className="back-link">Back to articles</Link>
       </footer>
+
+      {nid && <CommentSection nid={nid} />}
     </article>
   )
 }

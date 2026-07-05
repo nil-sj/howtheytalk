@@ -21,6 +21,7 @@ export default function AdminLayout() {
           <NavLink to="/admin/suggest">✨ AI suggestions</NavLink>
           <NavLink to="/admin/submissions">📬 Submissions</NavLink>
           <NavLink to="/admin/analytics">📈 Analytics</NavLink>
+          <NavLink to="/admin/comments">💬 Comments</NavLink>
           <NavLink to="/admin/category-metrics">📊 Category metrics</NavLink>
           <NavLink to="/admin/settings">⚙️ AI settings</NavLink>
         </nav>

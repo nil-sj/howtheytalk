@@ -114,3 +114,48 @@ talknotes_api.save_pageviews:
   requirements:
     _access: 'TRUE'
   methods: [POST, OPTIONS]
+
+talknotes_api.comment_submit:
+  path: '/api/comments/submit'
+  defaults:
+    _controller: '\Drupal\talknotes_api\Controller\CommentController::submitComment'
+    _title: 'Submit Comment'
+  requirements:
+    _access: 'TRUE'
+  methods: [POST, OPTIONS]
+
+talknotes_api.comment_get:
+  path: '/api/comments'
+  defaults:
+    _controller: '\Drupal\talknotes_api\Controller\CommentController::getComments'
+    _title: 'Get Comments'
+  requirements:
+    _access: 'TRUE'
+  methods: [GET, OPTIONS]
+
+talknotes_api.comment_admin_list:
+  path: '/api/admin/comments'
+  defaults:
+    _controller: '\Drupal\talknotes_api\Controller\CommentController::adminGetComments'
+    _title: 'Admin Comments'
+  requirements:
+    _access: 'TRUE'
+  methods: [GET, OPTIONS]
+
+talknotes_api.comment_admin_update:
+  path: '/api/admin/comments/update'
+  defaults:
+    _controller: '\Drupal\talknotes_api\Controller\CommentController::adminUpdateComment'
+    _title: 'Update Comment'
+  requirements:
+    _access: 'TRUE'
+  methods: [POST, OPTIONS]
+
+talknotes_api.comment_admin_delete:
+  path: '/api/admin/comments/delete'
+  defaults:
+    _controller: '\Drupal\talknotes_api\Controller\CommentController::adminDeleteComment'
+    _title: 'Delete Comment'
+  requirements:
+    _access: 'TRUE'
+  methods: [POST, OPTIONS]

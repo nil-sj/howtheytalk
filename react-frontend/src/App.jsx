@@ -33,6 +33,7 @@ import AdminSubmissions from './admin/pages/AdminSubmissions'
 import AdminSettings from './admin/pages/AdminSettings'
 import AdminSuggest from './admin/pages/AdminSuggest'
 import AdminAnalytics from './admin/pages/AdminAnalytics'
+import AdminComments from './admin/AdminComments'
 import AdminCategoryMetrics from './admin/pages/AdminCategoryMetrics'
 import './index.css'
 
@@ -79,6 +80,7 @@ export default function App() {
             <Route path="settings" element={<AdminSettings />} />
             <Route path="suggest" element={<AdminSuggest />} />
             <Route path="analytics" element={<AdminAnalytics />} />
+            <Route path="comments" element={<AdminComments />} />
             <Route path="category-metrics" element={<AdminCategoryMetrics />} />
           </Route>
         </Routes>
